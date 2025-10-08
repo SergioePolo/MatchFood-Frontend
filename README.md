@@ -1,59 +1,76 @@
-# MatchFoodFrontend
+🍽️ MatchFood
+🧩 Descripción General
+MatchFood es una aplicación web desarrollada en Angular que busca conectar restaurantes pequeños, medianos y cocinas ocultas con personas interesadas en descubrir nuevas experiencias gastronómicas cercanas.
+La aplicación utiliza el GPS del usuario para mostrar los restaurantes más próximos, brindando información sobre:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+📍 Su ubicación y tipo de cocina
+🍴 Los platos o servicios que ofrecen
+⭐ Posibilidad de calificar y comentar experiencias, simulando publicaciones de red social
+💬 Interacción entre usuarios mediante discusiones basadas en reseñas
+📅 Reserva de mesas directamente desde la plataforma
 
-## Development server
+En resumen, MatchFood combina geolocalización, interacción social y experiencia gastronómica en un solo entorno digital.
 
-To start a local development server, run:
+👨‍💻 Autores
+NombreRol en el equipoEvelyn BecerraDiseño UI/UX y experiencia de usuarioJuan MoraDesarrollo frontend e integración inicialSergio PoloEstructuración del proyecto, configuración inicial y soporte técnico
 
-```bash
-ng serve
-```
+⚙️ Requisitos Previos
+Para ejecutar correctamente el frontend de MatchFood, asegúrate de contar con las siguientes herramientas instaladas en tu entorno:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Node.js — versión 18.x o superior
+Angular CLI — versión 17.x o superior
+npm — gestor de paquetes incluido con Node.js
+Git (opcional, para clonar el repositorio)
 
-## Code scaffolding
+Dependencias adicionales del proyecto:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Bootstrap — para diseño y estilos responsivos
+Bootstrap Icons — para iconografía ligera y moderna
 
-```bash
-ng generate component component-name
-```
+Verifica tus versiones ejecutando:
+bashnode -v
+npm -v
+ng version
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+🚀 Instrucciones de Instalación y Ejecución
+Sigue los siguientes pasos para instalar y ejecutar el proyecto en tu entorno local:
+1️⃣ Clonar el repositorio
+Abre una terminal y ejecuta:
+bashgit clone https://github.com/usuario/matchfood-frontend.git
+cd matchfood-frontend
+2️⃣ Instalar dependencias
+Instala todas las librerías necesarias con:
+bashnpm install
+3️⃣ Ejecutar el servidor de desarrollo
+Inicia el servidor local con:
+bashng serve
+Luego, abre tu navegador y visita:
+👉 http://localhost:4200/
+Cada cambio realizado en el código se recargará automáticamente en el navegador.
 
-```bash
-ng generate --help
-```
+⚠️ Compilación para Producción
+El proyecto se encuentra en una etapa inicial, por lo que no se recomienda compilarlo para producción aún.
+En caso de requerirlo, ejecuta:
+bashng build --configuration production
+Los archivos compilados se generarán en la carpeta dist/.
 
-## Building
+🏗️ Estado del Proyecto
+📦 Estado actual
+El proyecto se encuentra en la etapa final de diseño e inicio de la fase de desarrollo.
+Esta versión corresponde únicamente al frontend de MatchFood.
+🔧 En este momento se está trabajando en
 
-To build the project run:
+La estructuración inicial del proyecto Angular
+La implementación de los primeros componentes y rutas
+La configuración visual y responsiva mediante Bootstrap
 
-```bash
-ng build
-```
+🚧 Próximas fases
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Integración con el backend para manejo de datos reales
+Implementación del sistema de autenticación y reservas
+Conexión de las funcionalidades de interacción social
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🧭 Licencia
+Este proyecto es de uso educativo y de desarrollo colaborativo.
+Licencia pendiente de definir según la fase del proyecto.
