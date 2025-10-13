@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.cdnfonts.com/css/quicksand');
+                
+:root {
+    --fuente-texto: 'Quicksand', sans-serif;
+    --color-menu: #4A2C2A;
+    --color-titulos: #F5F5DC;
+    --color-textos: #F5F5DC;
+    --tamaño-titulos: 30px;
+  }
+  body {
+    background: linear-gradient(180deg, #8A8C66 0%, #FFEC87 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--fuente-texto);
+    overflow-x: hidden;
+    color: var(--color-textos);
+  }
+  
+
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}/* You can add global styles to this file, and also import other style files */
