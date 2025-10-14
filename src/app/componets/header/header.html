@@ -1,13 +1,95 @@
-<nav>
-    <ul>
-        <li><a routerLink="/inicio">Bienvienida</a></li>
-        <li><a routerLink="/inicio">Explora restaurantes</a></li>
-        <li><a routerLink="/califica-tu-reserva">Califica tu reserva</a></li>
-        <li><a routerLink="/perfil-de-usuario">Perfil de usuario</a></li>
-        <li><a routerLink="/perfil-de-usuario">Perfil del restaurante</a></li>
-        <li><a routerLink="/crear-restaurante">Registrar restaurante</a></li>
-        <li><a routerLink="/inicio-de-sesion">Inicia sesión</a></li>
-        <li><a routerLink="/crear-usuario">Crear usuario</a></li>
-        <li><a routerLink="/404-pagina-no-encontrada">404 - No encontramos la página</a></li>
-    </ul>
-</nav>
+<!-- Banner amarillo -->
+<div class="w-100 text-center py-2" style="background-color: #F4C430; color: #4A2C2A;">
+    <strong>Tu próxima mesa te espera</strong>
+  </div>
+  
+  <!-- Header principal -->
+  <header class="py-3" style="background-color: #F5F5DC;">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <div class="col-auto">
+          <img src="logo-matchfood.png" alt="MatchFood Logo" width="80" height="60" />
+        </div>
+  
+        <div class="col-auto">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-geo-alt me-2" style="color: #4A2C2A; font-size: 1.2rem;"></i>
+            <span style="color: #4A2C2A;">Bogotá, Chapinero</span>
+          </div>
+        </div>
+  
+        <div class="col"></div>
+  
+        <div class="col-auto">
+          <div class="d-flex align-items-center gap-3">
+            <a href="#" class="text-decoration-none" style="color: #4A2C2A;">
+              <i class="bi bi-search" style="font-size: 1.5rem;"></i>
+            </a>
+  
+            <a href="#" class="text-decoration-none">
+              <img src="perfil.jpg" alt="Perfil" class="rounded-circle" width="40" height="40" />
+            </a>
+  
+            <a href="#" class="text-decoration-none" style="color: #4A2C2A;">
+              <i class="bi bi-bell" style="font-size: 1.5rem;"></i>
+            </a>
+  
+            <!-- Menú hamburguesa -->
+            <button class="btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" style="color: #4A2C2A;">
+              <i class="bi bi-list" style="font-size: 1.8rem;"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="menuLateral" style="background-color: #F5F5DC;">
+    <div class="offcanvas-header" style="border-bottom: 2px solid #4A2C2A;">
+      <h5 class="offcanvas-title" style="color: #4A2C2A;">Menú</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <a routerLink="/inicio" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-house-door me-2"></i>Explora restaurantes
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/califica-tu-reserva" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-star me-2"></i>Califica tu reserva
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/perfil-de-usuario" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-person me-2"></i>Perfil de usuario
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/perfil-del-restaurante" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-shop me-2"></i>Perfil del restaurante
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/crear-restaurante" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-plus-circle me-2"></i>Registrar restaurante
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/inicio-de-sesion" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-box-arrow-in-right me-2"></i>Inicia sesión
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/crear-usuario" class="text-decoration-none d-block py-2" style="color: #4A2C2A; border-bottom: 1px solid #ddd;">
+              <i class="bi bi-person-plus me-2"></i>Crear usuario
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
