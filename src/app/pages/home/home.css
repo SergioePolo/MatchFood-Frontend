@@ -1,0 +1,108 @@
+.carousel-container {
+    position: relative;
+}
+
+.titulo-principal {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text_color);
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    z-index: 1050;
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-family-title);
+}
+
+
+.carousel-caption h5 {
+    color: var(--text_color)!important;
+    font-weight: bold !important;
+}
+
+.carousel-caption p {
+    font-family: var(--font-family-title) !important;
+    color: var(--text_color)!important;
+    font-weight: bold !important;
+
+}
+.novedades {
+    padding: 40px 0;
+    background-color: var(--secondary_color);
+  }
+  
+  .novedades h3 {
+    color: var(--text_color);
+    font-family: var(--font-family-title);
+    text-align: center;
+    margin-bottom: 40px;
+}
+  
+  .novedades .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  
+  .novedades .tarjeta img.imagen-restaurante {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .novedades .nombre-restaurante {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    font-family: var(--font-family-title);
+    color: var(--text_color);
+    font-weight: bold;
+  
+    
+  }
+  
+  .locacion {
+    display: flex;
+    align-items: center; 
+    gap: 5px; 
+    color: var(--text_color);
+}
+
+.locacion p {
+    margin: 0; 
+    color: var(--text_color);
+    font-family: var(--font-family-title);
+}
+
+.estrellas {
+    color: var(--accent_color_2);
+}
+  
+ 
+  .novedades .icono {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .novedades .card {
+    width: 24rem; /* más grande */
+    border-radius: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .novedades .card img {
+    height: 220px; /* ajusta la altura de la imagen */
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  
+  .novedades .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  }
+  
