@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal, inject, OnInit } from '@angular/core';
+import { NavigationEnd, RouterOutlet } from '@angular/router';
 import { Header } from './componets/header/header';
 import { Footer } from './componets/footer/footer';
+import { Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,18 @@ import { Footer } from './componets/footer/footer';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('MatchFood-Frontend');
+export class App implements OnInit {
+  routerNav = inject(Router);
+  isVisible : boolean = false;
+  hiddenRoutes : string[]= ["/crear-usuario", "/crear-restaurante", "/inicio-de-sesion"];
+
+  selectedRoutes (){
+    this.routerNav.events.pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.isVisible = !this.hiddenRoutes.includes(event.url);
+      });
+  }
+  ngOnInit(): void {
+    this.selectedRoutes()  
+  }
 }

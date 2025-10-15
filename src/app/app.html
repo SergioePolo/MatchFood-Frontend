@@ -1,6 +1,8 @@
 
 <div class="layout-root">
-    <app-header></app-header>
+    @if (isVisible) {
+        <app-header></app-header>
+    }
     <main class="main-content">
         <router-outlet></router-outlet>
     </main>
