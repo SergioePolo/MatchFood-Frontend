@@ -15,6 +15,7 @@ export class App implements OnInit {
   routerNav = inject(Router);
   isVisible : boolean = false;
   hiddenRoutes : string[]= ["/crear-usuario", "/crear-restaurante", "/inicio-de-sesion"];
+  //Test
 
   selectedRoutes (){
     this.routerNav.events.pipe(filter(event => event instanceof NavigationEnd))

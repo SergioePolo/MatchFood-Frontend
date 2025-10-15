@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class Header implements OnInit {
   isLoggedIn : boolean = false;
-
+  //Test
   userLoggedIn (){
     this.isLoggedIn = false;
   }
