@@ -1,0 +1,63 @@
+main {
+    background-image: url('../../../assets/Static_Cards/Restaurant_1.png');
+    width: 18%;
+    padding: 10px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    border-radius: 20px;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    color: var(--color-buttons2);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.action-button-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.icon-btn {
+    background: none;
+    border: 1px solid var(--color-buttons2);
+    border-radius: 50%;
+    padding: 10px;
+    color: var(--color-buttons2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.icon-btn i {
+    font-size: 1rem;
+}
+
+.action-button-group a {
+    color: var(--color-buttons2);
+    border: 1px solid var(--color-buttons2);
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}

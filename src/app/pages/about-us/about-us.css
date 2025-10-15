@@ -1,0 +1,29 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+div{
+    width: 60%;
+}
+h1{
+    font-weight: bold;
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    background-color: var(--color-buttons2);
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-menu);
+    font-weight: bold;
+}

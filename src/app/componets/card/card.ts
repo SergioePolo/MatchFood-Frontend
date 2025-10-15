@@ -1,10 +1,11 @@
 import { Component, inject, OnInit} from '@angular/core';
 import { ServiceRestaurants } from '../../services/restaurants';
 import { Restaurant } from '../../interfaces/restaurant';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './card.html',
   styleUrl: './card.css'
 })

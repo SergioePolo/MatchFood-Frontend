@@ -11,7 +11,7 @@ import { UserRegister } from './pages/user-register/user-register';
 import { Welcome } from './pages/welcome/welcome';
 
 export const routes: Routes = [
-    {path: '' , component: Welcome, title:'Inicio'},
+    {path: '' , component: Welcome, title:'Bienvenido a Match'},
     {path: 'nosotros', component: AboutUs, title: 'Acerca de MatchFood'},
     {path: 'inicio', component: Home, title: 'Encuentra tu restaurante'},
     {path: 'inicio-de-sesion', component: Login, title: 'Inicia sesión'},
