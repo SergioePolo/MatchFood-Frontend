@@ -1,1 +1,94 @@
-<p>user-register-form works!</p>
+<main>
+  <section class="formAcceso">
+    <div class="imagenDelForm">
+      <img src="/public/logo.png" alt="Logo MatchFood">
+    </div>
+
+    <form>
+      <div class="form-row">
+        <div class="form-group">
+          <p>Nombre *</p>
+          <input 
+            type="text" 
+            id="firstName"
+            placeholder="Juan"
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Apellido *</p>
+          <input 
+            type="text" 
+            id="lastName"
+            placeholder="Pérez"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>Email *</p>
+        <input 
+          type="email" 
+          id="email"
+          placeholder="tu@email.com"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Teléfono *</p>
+        <input 
+          type="tel" 
+          id="phone"
+          placeholder="3001234567"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Contraseña *</p>
+        <input 
+          type="password" 
+          id="password"
+          placeholder="Tu contraseña"
+        >
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <p>Ciudad *</p>
+          <input 
+            type="text" 
+            id="city"
+            placeholder="Medellín"
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Preferencias</p>
+          <select id="categories">
+            <option value="">Selecciona una opción</option>
+            <option value="carne">Carne</option>
+            <option value="pescado">Pescado</option>
+            <option value="pollo">Pollo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>Dirección *</p>
+        <input 
+          type="text" 
+          id="address"
+          placeholder="Calle 123 #45-67"
+        >
+      </div>
+
+      <button type="submit" class="login-button">
+        Crear Cuenta en MatchFood
+      </button>
+    </form>
+
+    <div class="login-link">
+      <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+    </div>
+  </section>
+</main>
