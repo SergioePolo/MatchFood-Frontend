@@ -1,1 +1,35 @@
-<p>login-form works!</p>
+<main>
+  <section class="formAcceso">
+    <div class="imagenDelForm">
+      <img src="/public/logo.png" alt="Logo MatchFood">
+    </div>
+
+    <form>
+      <div class="form-group">
+        <p>Ingresa tu email:</p>
+        <input 
+          type="email" 
+          id="email"
+          placeholder="tu@email.com"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Ingresa tu contraseña:</p>
+        <input 
+          type="password" 
+          id="password"
+          placeholder="Tu contraseña"
+        >
+      </div>
+
+      <button type="submit" class="login-button">
+        Ingresa a MatchFood
+      </button>
+    </form>
+
+    <div class="register-link">
+      <p>¿No tienes cuenta? <a routerLink="/crear-usuario">Regístrate aquí</a></p>
+    </div>
+  </section>
+</main>
