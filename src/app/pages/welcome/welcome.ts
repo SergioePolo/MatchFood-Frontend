@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Card } from '../../componets/card/card';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-welcome',
-  imports: [Card],
+  imports: [RouterLink],
   templateUrl: './welcome.html',
   styleUrl: './welcome.css'
 })
