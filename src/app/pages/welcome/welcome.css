@@ -1,11 +1,11 @@
 /* welcome.css */
 main {
-    height: 610px;
+    height: 66.7vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('../../../assets/main_Resources/Wallpaper_Collage.png');
+    background-image: url('/assets/main_Resources/Wallpaper_Collage.png');
 }
 
 p{
