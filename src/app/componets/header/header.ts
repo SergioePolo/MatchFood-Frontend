@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   styleUrl: './header.css'
 })
 export class Header implements OnInit {
-  isLoggedIn : boolean = false;
+  isLoggedIn : boolean = true;
   //Test
   userLoggedIn (){
-    this.isLoggedIn = false;
+    this.isLoggedIn = true;
   }
   ngOnInit(): void {
     this.userLoggedIn();
