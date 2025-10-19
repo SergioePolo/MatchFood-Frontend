@@ -66,6 +66,29 @@ header{
   align-items: center;
 }
 
+/* ===== Hover en el logo ===== */
+.leftContainer img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.leftContainer img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* ===== Hover en la foto de perfil ===== */
+.profile-pic {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #FFD700; 
+}
+
+
 .login-btn {
   border-style: none;
   background-color: var(--color-buttons1);
