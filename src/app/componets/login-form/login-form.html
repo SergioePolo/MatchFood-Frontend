@@ -1,12 +1,16 @@
 <main>
   <section class="formAcceso">
     <div class="imagenDelForm">
-      <img src="/public/logo.png" alt="Logo MatchFood">
+      <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+    </div>
+
+    <div class="form-title">
+      <h2>Inicia sesión con tú cuenta</h2>
     </div>
 
     <form>
       <div class="form-group">
-        <p>Ingresa tu email:</p>
+        <p>Ingresa tú email:</p>
         <input 
           type="email" 
           id="email"
@@ -15,12 +19,21 @@
       </div>
 
       <div class="form-group">
-        <p>Ingresa tu contraseña:</p>
+        <p>Ingresa tú contraseña:</p>
         <input 
           type="password" 
           id="password"
-          placeholder="Tu contraseña"
+          placeholder="Tú contraseña"
         >
+      </div>
+
+      <div class="form-group">
+        <p>Selecciona tú rol:</p>
+        <select id="rol" >
+          <option value="" disabled selected>Tú rol</option>
+          <option value="comensal">Usuario</option>
+          <option value="restaurante">Restaurante</option>
+        </select>
       </div>
 
       <button type="submit" class="login-button">
@@ -29,6 +42,7 @@
     </form>
 
     <div class="register-link">
+      <a routerLink="**">¿Olvidaste tú contraseña?</a>
       <p>¿No tienes cuenta? <a routerLink="/crear-usuario">Regístrate aquí</a></p>
     </div>
   </section>
