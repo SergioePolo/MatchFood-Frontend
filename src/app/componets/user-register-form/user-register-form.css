@@ -1,5 +1,4 @@
 @import url('https://fonts.cdnfonts.com/css/quicksand');
-@import url('https://fonts.cdnfonts.com/css/roboto');
 
 :root {
     --primary_color: #4A2C2A;
@@ -7,6 +6,7 @@
     --accent_color_1: #E97451;
     --accent_color_2: #FFD700;
     --text_color: #F5F5DC;
+    --font_family: 'quicksand', sans-serif;
 }
 
 * {
@@ -17,7 +17,7 @@
 
 body {
     background-color: var(--secondary_color);
-    font-family: 'Roboto', sans-serif;
+   font-family: var(--font_family);
     color: var(--text_color);
 }
 
@@ -30,28 +30,41 @@ main {
     min-height: 100vh;
 }
 
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color:#4A2C2A;
+}
+
 .formAcceso {
     background-color: var(--text_color);
     display: flex;
     flex-direction: column;
-    width: min(500px, 90vw);
+    width: min(600px, 90vw);
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     gap: 25px;
+    background-color: #F5F5DC ;
 }
 
 .imagenDelForm {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    transition: transform 0.4s ease;
 }
 
 .imagenDelForm img {
-    height: 80px;
+    height: 90px;
     width: auto;
     object-fit: contain;
 }
+
+.imagenDelForm:hover {
+    transform: scale(1.05);
+}
+
 
 .form-group {
     display: flex;
@@ -61,21 +74,24 @@ main {
 
 .form-group p,
 .form-group label {
-    color: var(--primary_color);
-    font-weight: 500;
-    font-size: 16px;
+    color: #4A2C2A; 
+    font-weight: bold;
+    font-size: 18px;
     margin: 0;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px; 
+    color: #6b6b6b;; 
+    
 }
 
 .form-group input:focus,
@@ -126,12 +142,11 @@ main {
     margin-bottom: 20px;
     font-size: 14px;
 }
-
 .login-button {
     width: 100%;
     padding: 15px;
-    background-color: var(--accent_color_1);
-    color: black;
+    background-color: var(--color-buttons2);
+    color: #4A2C2A;
     border: none;
     border-radius: 8px;
     font-size: 18px;
@@ -139,14 +154,15 @@ main {
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+   font-family: var(--font_family);
+    font-weight: bold;
+    transition: transform 0.4s ease;
 }
-
 .login-button:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(74, 44, 42, 0.3);
+    transform: scale(1.05);
+  
 }
 
 .login-button:disabled {
@@ -164,9 +180,9 @@ main {
 
 .register-link p,
 .login-link p {
-    color: var(--primary_color);
+    color: #4A2C2A;
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .register-link a,
