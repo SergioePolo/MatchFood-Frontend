@@ -1,5 +1,4 @@
 @import url('https://fonts.cdnfonts.com/css/quicksand');
-@import url('https://fonts.cdnfonts.com/css/roboto');
 
 :root {
     --primary_color: #4A2C2A;
@@ -7,6 +6,7 @@
     --accent_color_1: #E97451;
     --accent_color_2: #FFD700;
     --text_color: #F5F5DC;
+    --font_family: 'quicksand', sans-serif;
 }
 
 * {
@@ -34,11 +34,12 @@ main {
     background-color: var(--text_color);
     display: flex;
     flex-direction: column;
-    width: min(550px, 90vw);
+    width: min(600px, 90vw);
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     gap: 25px;
+    background-color: #F5F5DC ;
 }
 
 .imagenDelForm {
@@ -55,20 +56,21 @@ main {
 
 .form-title {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color:#4A2C2A;
 }
 
 .form-title h2 {
     color: var(--primary_color);
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.8rem;
+    font-size: 30px;
     margin: 0 0 10px 0;
     font-weight: 700;
 }
 
 .form-title .subtitle {
     color: var(--primary_color);
-    font-size: 14px;
+    font-size: 15px;
     opacity: 0.8;
     margin: 0;
 }
@@ -79,23 +81,32 @@ main {
     gap: 8px;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .form-group p,
 .form-group label {
-    color: var(--primary_color);
-    font-weight: 500;
-    font-size: 16px;
+    color: #4A2C2A; 
+    font-weight: bold;
+    font-size: 18px;
     margin: 0;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px; 
+    color: #6b6b6b;; 
+    
 }
 
 .form-group input:focus,
@@ -150,8 +161,8 @@ main {
 .login-button {
     width: 100%;
     padding: 15px;
-    background-color: var(--accent_color_1);
-    color: black;
+    background-color: var(--color-buttons2);
+    color: #4A2C2A;
     border: none;
     border-radius: 8px;
     font-size: 18px;
@@ -159,21 +170,21 @@ main {
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+   font-family: var(--font_family);
+    font-weight: bold;
+    transition: transform 0.4s ease;
 }
 
 .login-button:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(74, 44, 42, 0.3);
+    transform: scale(1.05);
 }
 
 .login-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
-
 .login-link {
     text-align: center;
     margin-top: 20px;
@@ -193,6 +204,26 @@ main {
     text-decoration: none;
 }
 
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+.register-link p,
+.login-link p {
+    color: #4A2C2A; 
+    margin: 0;
+    font-size: 18px;
+}
+
+.register-link a,
+.login-link a {
+    color: #4A2C2A;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.register-link a:hover,
 .login-link a:hover {
     text-decoration: underline;
 }

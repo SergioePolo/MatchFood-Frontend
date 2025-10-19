@@ -20,5 +20,6 @@ export const routes: Routes = [
     {path: 'crear-restaurante', component: RestaurantsRegister, title: 'Crear tu restaurante'},
     {path: 'perfil-de-usuario', component: UserProfile, title: 'Perfil de usuario'},
     {path: 'crear-usuario', component: UserRegister, title: 'Crea tu usuario'},
+    {path: 'crear-restaurante', component:  RestaurantsRegister, title: 'Crea tu restaurante'},
     {path:'**' , component: NotFound, title: '404 - No encontramos la página'},
 ];
