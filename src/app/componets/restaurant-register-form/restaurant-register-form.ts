@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-restaurant-register-form',
-  imports: [],
   templateUrl: './restaurant-register-form.html',
   styleUrl: './restaurant-register-form.css'
 })
