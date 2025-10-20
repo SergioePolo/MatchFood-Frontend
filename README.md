@@ -39,6 +39,7 @@ Para ejecutar correctamente el frontend de **MatchFood**, asegúrate de contar c
 
 - **Bootstrap** — para diseño y estilos responsivos  
 - **Bootstrap Icons** — para iconografía ligera y moderna  
+- **jwt-decode** — para el manejo del token de autenticación
 
 Verifica tus versiones ejecutando:
 
@@ -97,7 +98,7 @@ Los archivos compilados se generarán en la carpeta **`dist/`**.
 ## 🏗️ Estado del Proyecto
 
 ### 📦 Estado actual
-El proyecto se encuentra en la **etapa final de diseño** e inicio de la fase de desarrollo.  
+El proyecto se encuentra en la etapa de desarrollo, donde se tiene un diseño parcial de todas las interfaces del sistema con su respectiva navegación e interacciones, se creo la funcionalidad de autenticación y seguridad mediante guards e interceptors para evitar el acceso a rutas sin autenticación y/o permisos específicos.
 Esta versión corresponde únicamente al **frontend de MatchFood**.
 
 ### 🔧 En este momento se está trabajando en:
