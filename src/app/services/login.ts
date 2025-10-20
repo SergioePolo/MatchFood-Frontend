@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginService {
-
   
   private _httpClient = inject(HttpClient);
   private _router = inject(Router);
@@ -20,13 +19,11 @@ export class LoginService {
     return this._httpClient.post(`${this.apiUrl}/login`, loginCredentials);
   }
 
- 
   getToken(){
-   
+  
     return localStorage.getItem('token'); 
   }
 
-  
   isAdmin(){
 
     const token = this.getToken();
@@ -40,7 +37,6 @@ export class LoginService {
     }
   }
 
- 
   redirectTo(){
     
     if(this.isAdmin()){
@@ -50,11 +46,14 @@ export class LoginService {
     }
   }
 
- 
   logout(){
     localStorage.removeItem('token');
     alert('Cierre de sesión exitoso, Vuelve pronto!');
     this._router.navigate(['/login']);
+  }
+
+  isLogggedIn(){
+    return this.getToken() ? true: false;
   }
 
 }

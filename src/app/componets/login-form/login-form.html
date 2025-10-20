@@ -8,13 +8,14 @@
       <h2>Inicia sesión con tú cuenta</h2>
     </div>
 
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
         <p>Ingresa tú email:</p>
         <input 
           type="email" 
           id="email"
           placeholder="tu@email.com"
+          formControlName="email"
         >
       </div>
 
@@ -24,14 +25,15 @@
           type="password" 
           id="password"
           placeholder="Tú contraseña"
+          formControlName="password"
         >
       </div>
 
       <div class="form-group">
         <p>Selecciona tú rol:</p>
-        <select id="rol" >
+        <select id="rol" formControlName="role">
           <option value="" disabled selected>Tú rol</option>
-          <option value="comensal">Usuario</option>
+          <option value="usuario">Usuario</option>
           <option value="restaurante">Restaurante</option>
         </select>
       </div>
@@ -43,7 +45,7 @@
 
     <div class="register-link">
       <a routerLink="**">¿Olvidaste tú contraseña?</a>
-      <p>¿No tienes cuenta? <a routerLink="/crear-usuario">Regístrate aquí</a></p>
+      <p>¿No tienes cuenta? <a routerLink="/crear-usuario"><strong>Regístrate aquí</strong></a></p>
     </div>
   </section>
 </main>

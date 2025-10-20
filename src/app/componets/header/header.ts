@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Router } from '@angular/router';
+import { LoginService } from '../../services/login';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header implements OnInit {
-  isLoggedIn : boolean = true;
-  //Test
-  userLoggedIn (){
-    this.isLoggedIn = true;
-  }
-  ngOnInit(): void {
-    this.userLoggedIn();
-  }
+export class Header {
+  private _LoginService = inject(LoginService);
+  
+  isLoggedIn : boolean = this._LoginService.isLogggedIn();
+
 }

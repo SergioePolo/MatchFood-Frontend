@@ -8,7 +8,7 @@
       <h2>Registrate</h2>
     </div>
 
-    <form>
+    <form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
       <div class="form-row">
         <div class="form-group">
           <p>Nombre *</p>
@@ -16,6 +16,7 @@
             type="text" 
             id="firstName"
             placeholder="Juan"
+            formControlName="firstName"
           >
         </div>
 
@@ -25,6 +26,7 @@
             type="text" 
             id="lastName"
             placeholder="Pérez"
+            formControlName="lastName"
           >
         </div>
       </div>
@@ -35,6 +37,7 @@
           type="email" 
           id="email"
           placeholder="tu@email.com"
+          formControlName="email"
         >
       </div>
 
@@ -44,6 +47,7 @@
           type="tel" 
           id="phone"
           placeholder="3001234567"
+          formControlName="phone"
         >
       </div>
 
@@ -53,6 +57,7 @@
           type="password" 
           id="password"
           placeholder="Tú contraseña"
+          formControlName="password"
         >
       </div>
 
@@ -63,12 +68,13 @@
             type="text" 
             id="city"
             placeholder="Medellín"
+            formControlName="city"
           >
         </div>
 
         <div class="form-group">
           <p>Preferencias</p>
-          <select id="categories">
+          <select id="categories" formControlName="preferences">
             <option value="">Selecciona una opción</option>
             <option value="carne">Carne</option>
             <option value="pescado">Pescado</option>
@@ -83,6 +89,7 @@
           type="text" 
           id="address"
           placeholder="Calle 123 #45-67"
+          formControlName="address"
         >
       </div>
 

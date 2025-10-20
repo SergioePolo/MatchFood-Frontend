@@ -9,14 +9,15 @@
       <p class="subtitle">Únete a MatchFood como socio restaurante</p>
     </div>
 
-    <form>
+    <form [formGroup]="restaurantForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
         <p>Nombre del Restaurante *</p>
         <input 
           type="text" 
           id="restaurantName"
           placeholder="La Casa del Sabor"
-        >
+          formControlName="name"
+          >
       </div>
 
       <div class="form-group">
@@ -25,6 +26,7 @@
           type="email" 
           id="email"
           placeholder="restaurante@email.com"
+          formControlName="email"
         >
       </div>
 
@@ -34,6 +36,7 @@
           type="tel" 
           id="phone"
           placeholder="3001234567"
+          formControlName="phone"
         >
       </div>
 
@@ -43,6 +46,7 @@
           type="password" 
           id="password"
           placeholder="Tu contraseña"
+          formControlName="password"
         >
       </div>
 
@@ -53,6 +57,7 @@
             type="text" 
             id="city"
             placeholder="Medellín"
+            formControlName="city"
           >
         </div>
 
@@ -62,6 +67,7 @@
             type="text" 
             id="address"
             placeholder="Calle 123 #45-67"
+            formControlName="address"
           >
         </div>
       </div>
@@ -72,7 +78,7 @@
     </form>
 
     <div class="login-link">
-      <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+      <p>¿Ya tienes cuenta? </p><a routerLink="/inicio-de-sesion">Inicia sesión aquí</a>
     </div>
   </section>
 </main>
