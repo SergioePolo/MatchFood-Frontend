@@ -5,46 +5,91 @@
     </div>
 
     <div class="form-title">
-      <h2>Inicia sesión con tú cuenta</h2>
+      <h2>Inicia sesión con tu cuenta</h2>
     </div>
+
+    @if (errorMessage()) {
+      <div class="error-alert">
+        {{ errorMessage() }}
+      </div>
+    }
 
     <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
-        <p>Ingresa tú email:</p>
+        <p>Ingresa tu email:</p>
         <input 
           type="email" 
           id="email"
           placeholder="tu@email.com"
           formControlName="email"
+          [class.invalid]="email?.invalid && email?.touched"
         >
+        @if (email?.invalid && email?.touched) {
+          <span class="error-message">
+            @if (email?.errors?.['required']) {
+              El email es requerido
+            }
+            @if (email?.errors?.['email']) {
+              Ingresa un email válido
+            }
+          </span>
+        }
       </div>
 
       <div class="form-group">
-        <p>Ingresa tú contraseña:</p>
+        <p>Ingresa tu contraseña:</p>
         <input 
           type="password" 
           id="password"
-          placeholder="Tú contraseña"
+          placeholder="Tu contraseña"
           formControlName="password"
+          [class.invalid]="password?.invalid && password?.touched"
         >
+        @if (password?.invalid && password?.touched) {
+          <span class="error-message">
+            @if (password?.errors?.['required']) {
+              La contraseña es requerida
+            }
+            @if (password?.errors?.['minlength']) {
+              La contraseña debe tener al menos 6 caracteres
+            }
+          </span>
+        }
       </div>
 
       <div class="form-group">
-        <p>Selecciona tú rol:</p>
-        <select id="rol" formControlName="role">
-          <option value="" disabled selected>Tú rol</option>
+        <p>Selecciona tu rol:</p>
+        <select 
+          id="rol" 
+          formControlName="role"
+          [class.invalid]="role?.invalid && role?.touched"
+        >
+          <option value="" disabled selected>Tu rol</option>
           <option value="usuario">Usuario</option>
           <option value="restaurante">Restaurante</option>
         </select>
+        @if (role?.invalid && role?.touched) {
+          <span class="error-message">
+            Debes seleccionar un rol
+          </span>
+        }
       </div>
 
-      <button type="submit" class="login-button">
-        Ingresa a MatchFood
+      <button 
+        type="submit" 
+        class="login-button"
+        [disabled]="isLoading()"
+      >
+        @if (isLoading()) {
+          Iniciando sesión...
+        } @else {
+          Ingresa a MatchFood
+        }
       </button>
     </form>
 
     <div class="register-link">
-      <a routerLink="**">¿Olvidaste tú contraseña?</a>
+      <a routerLink="**">¿Olvidaste tu contraseña?</a>
       <p>¿No tienes cuenta? <a routerLink="/crear-usuario"><strong>Regístrate aquí</strong></a></p>
     </div>
   </section>
