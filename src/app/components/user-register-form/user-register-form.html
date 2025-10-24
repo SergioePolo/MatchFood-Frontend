@@ -1,11 +1,10 @@
 <main>
-  <section class="formAcceso">
     <div class="imagenDelForm">
       <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
     </div>
 
     <div class="form-title">
-      <h2>Registrate</h2>
+      <h2>Regístrate</h2>
     </div>
 
     <form [formGroup]="userRegisterForm" (ngSubmit)="handleSubmit()">
@@ -64,7 +63,7 @@
         <input 
           type="password" 
           id="password"
-          placeholder="Tú contraseña"
+          placeholder="Tu contraseña"
           formControlName="password"
           autocomplete="new-password"
             [class.is-invalid]="userRegisterForm.get('password')?.invalid"
@@ -107,13 +106,15 @@
         >
       </div>
 
-      <button type="submit" class="login-button">
-        Crear Cuenta en MatchFood
+      <button 
+        type="submit" 
+        class="login-button"
+      >
+
       </button>
     </form>
 
     <div class="login-link">
       <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
     </div>
-  </section>
 </main>
