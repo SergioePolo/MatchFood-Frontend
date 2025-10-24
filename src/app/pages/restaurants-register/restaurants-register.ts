@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RestaurantRegisterForm } from '../../componets/restaurant-register-form/restaurant-register-form';
+import { RestaurantRegisterForm } from '../../components/restaurant-register-form/restaurant-register-form';
 
 @Component({
   selector: 'app-restaurants-register',

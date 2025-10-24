@@ -9,19 +9,7 @@
       <p class="subtitle">Únete a MatchFood como socio restaurante</p>
     </div>
 
-    @if (successMessage()) {
-      <div class="success-alert">
-        {{ successMessage() }}
-      </div>
-    }
-
-    @if (errorMessage()) {
-      <div class="error-alert">
-        {{ errorMessage() }}
-      </div>
-    }
-
-    <form [formGroup]="restaurantForm" (ngSubmit)="handleSubmit()">
+    <form [formGroup]="restaurantRegistrationForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
         <p>Nombre del Restaurante *</p>
         <input 
@@ -29,18 +17,9 @@
           id="restaurantName"
           placeholder="La Casa del Sabor"
           formControlName="name"
-          [class.invalid]="restaurantName?.invalid && restaurantName?.touched"
-        >
-        @if (restaurantName?.invalid && restaurantName?.touched) {
-          <span class="error-message">
-            @if (restaurantName?.errors?.['required']) {
-              El nombre del restaurante es requerido
-            }
-            @if (restaurantName?.errors?.['minlength']) {
-              Mínimo 3 caracteres
-            }
-          </span>
-        }
+          autocomplete="name"
+          [class.is-invalid]="restaurantRegistrationForm.get('name')?.invalid"
+          >
       </div>
 
       <div class="form-group">
@@ -48,20 +27,11 @@
         <input 
           type="email" 
           id="email"
-          placeholder="restaurante@email.com"
+          placeholder="restaurante@gmail.com"
           formControlName="email"
-          [class.invalid]="email?.invalid && email?.touched"
+          autocomplete="email"
+          [class.is-invalid]="restaurantRegistrationForm.get('email')?.invalid"
         >
-        @if (email?.invalid && email?.touched) {
-          <span class="error-message">
-            @if (email?.errors?.['required']) {
-              El email es requerido
-            }
-            @if (email?.errors?.['email']) {
-              Ingresa un email válido
-            }
-          </span>
-        }
       </div>
 
       <div class="form-group">
@@ -71,18 +41,9 @@
           id="phone"
           placeholder="3001234567"
           formControlName="phone"
-          [class.invalid]="phone?.invalid && phone?.touched"
+          autocomplete="phone"
+          [class.is-invalid]="restaurantRegistrationForm.get('phone')?.invalid"
         >
-        @if (phone?.invalid && phone?.touched) {
-          <span class="error-message">
-            @if (phone?.errors?.['required']) {
-              El teléfono es requerido
-            }
-            @if (phone?.errors?.['pattern']) {
-              Ingresa 10 dígitos sin espacios
-            }
-          </span>
-        }
       </div>
 
       <div class="form-group">
@@ -92,7 +53,8 @@
           id="password"
           placeholder="Tu contraseña"
           formControlName="password"
-          [class.invalid]="password?.invalid && password?.touched"
+          autocomplete="new-password"
+          [class.is-invalid]="restaurantRegistrationForm.get('password')?.invalid"
         >
         @if (password?.invalid && password?.touched) {
           <span class="error-message">
@@ -114,13 +76,9 @@
             id="city"
             placeholder="Medellín"
             formControlName="city"
-            [class.invalid]="city?.invalid && city?.touched"
+            autocomplete="city"
+            [class.is-invalid]="restaurantRegistrationForm.get('city')?.invalid"
           >
-          @if (city?.invalid && city?.touched) {
-            <span class="error-message">
-              La ciudad es requerida
-            </span>
-          }
         </div>
 
         <div class="form-group">
@@ -130,26 +88,16 @@
             id="address"
             placeholder="Calle 123 #45-67"
             formControlName="address"
-            [class.invalid]="address?.invalid && address?.touched"
+            autocomplete="address"
+            [class.is-invalid]="restaurantRegistrationForm.get('address')?.invalid"
           >
-          @if (address?.invalid && address?.touched) {
-            <span class="error-message">
-              La dirección es requerida
-            </span>
-          }
         </div>
       </div>
 
       <button 
         type="submit" 
         class="login-button"
-        [disabled]="isLoading()"
       >
-        @if (isLoading()) {
-          Registrando restaurante...
-        } @else {
-          Registrar Restaurante en MatchFood
-        }
       </button>
     </form>
 

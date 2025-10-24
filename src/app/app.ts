@@ -1,7 +1,7 @@
 import { Component, signal, inject, OnInit } from '@angular/core';
 import { NavigationEnd, RouterOutlet } from '@angular/router';
-import { Header } from './componets/header/header';
-import { Footer } from './componets/footer/footer';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs';
 

@@ -20,17 +20,15 @@ export class LoginService {
   }
 
   getToken(){
-  
     return localStorage.getItem('token'); 
   }
 
-  isAdmin(){
-
+  roleValidation(){
     const token = this.getToken();
     
     if(token){
       const decoded : any = jwtDecode(token);
-      return decoded.admin === true ? true : false;
+      return decoded.role
     }else{
       console.log('No se encontró token');
       return false;
@@ -38,18 +36,22 @@ export class LoginService {
   }
 
   redirectTo(){
-    
-    if(this.isAdmin()){
+    if(this.roleValidation() === 'admin'){
       this._router.navigate(['/dashboard']);
-    }else{
-      this._router.navigate(['/']);
+    }
+    
+    if(this.roleValidation() === "restaurant"){
+      this._router.navigate(['/perfil-del-restaurante']);
+    }
+    else{
+      this._router.navigate(['/inicio']);
     }
   }
 
   logout(){
     localStorage.removeItem('token');
     alert('Cierre de sesión exitoso, Vuelve pronto!');
-    this._router.navigate(['/login']);
+    this._router.navigate(['/']);
   }
 
   isLogggedIn(){
