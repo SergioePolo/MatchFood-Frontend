@@ -8,7 +8,7 @@
       <h2>Inicia sesión con tú cuenta</h2>
     </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <form [formGroup]="loginAppForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
         <p>Ingresa tú email:</p>
         <input 
@@ -16,6 +16,8 @@
           id="email"
           placeholder="tu@email.com"
           formControlName="email"
+          autocomplete="email"
+          [class.is-invalid]="loginAppForm.get('email')?.invalid"
         >
       </div>
 
@@ -26,15 +28,17 @@
           id="password"
           placeholder="Tú contraseña"
           formControlName="password"
+          autocomplete="password"
+          [class.is-invalid]="loginAppForm.get('password')?.invalid"
         >
       </div>
 
       <div class="form-group">
         <p>Selecciona tú rol:</p>
-        <select id="rol" formControlName="role">
+        <select id="role" formControlName="role">
           <option value="" disabled selected>Tú rol</option>
-          <option value="usuario">Usuario</option>
-          <option value="restaurante">Restaurante</option>
+          <option value="user">Usuario</option>
+          <option value="restaurant">Restaurante</option> 
         </select>
       </div>
 
