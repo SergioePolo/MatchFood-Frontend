@@ -1,5 +1,5 @@
 <main>
-  <section class="formAcceso">
+  <div class="formAcceso">
     <div class="imagenDelForm">
       <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
     </div>
@@ -9,100 +9,122 @@
       <p class="subtitle">Únete a MatchFood como socio restaurante</p>
     </div>
 
+    @if (successMessage()) {
+    <div class="success-alert">
+      {{ successMessage() }}
+    </div>
+    }
+
+    @if (errorMessage()) {
+    <div class="error-alert">
+      {{ errorMessage() }}
+    </div>
+    }
+
     <form [formGroup]="restaurantRegistrationForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
         <p>Nombre del Restaurante *</p>
-        <input 
-          type="text" 
-          id="restaurantName"
-          placeholder="La Casa del Sabor"
-          formControlName="name"
-          autocomplete="name"
-          [class.is-invalid]="restaurantRegistrationForm.get('name')?.invalid"
-          >
+        <input type="text" id="restaurantName" placeholder="La Casa del Sabor" formControlName="name"
+          autocomplete="name" [class.is-invalid]="restaurantRegistrationForm.get('name')?.touched">
+        @if (restaurantName?.invalid && restaurantName?.touched) {
+        <span class="error-message">
+          @if (restaurantName?.errors?.['required']) {
+          El nombre del restaurante es requerido
+          }
+          @if (restaurantName?.errors?.['minlength']) {
+          Mínimo 3 caracteres
+          }
+        </span>
+        }
       </div>
 
       <div class="form-group">
         <p>Email del Restaurante *</p>
-        <input 
-          type="email" 
-          id="email"
-          placeholder="restaurante@gmail.com"
-          formControlName="email"
-          autocomplete="email"
-          [class.is-invalid]="restaurantRegistrationForm.get('email')?.invalid"
-        >
+        <input type="email" id="email" placeholder="restaurante@gmail.com" formControlName="email" autocomplete="email"
+          [class.is-invalid]="restaurantRegistrationForm.get('email')?.touched">
+        @if (email?.invalid && email?.touched) {
+        <span class="error-message">
+          @if (email?.errors?.['required']) {
+          El email es requerido
+          }
+          @if (email?.errors?.['email']) {
+          Ingresa un email válido
+          }
+        </span>
+        }
       </div>
 
       <div class="form-group">
         <p>Teléfono de Contacto *</p>
-        <input 
-          type="tel" 
-          id="phone"
-          placeholder="3001234567"
-          formControlName="phone"
-          autocomplete="phone"
-          [class.is-invalid]="restaurantRegistrationForm.get('phone')?.invalid"
-        >
+        <input type="tel" id="phone" placeholder="3001234567" formControlName="phone" autocomplete="phone"
+          [class.is-invalid]="restaurantRegistrationForm.get('phone')?.touched">
+        @if (phone?.invalid && phone?.touched) {
+        <span class="error-message">
+          @if (phone?.errors?.['required']) {
+          El teléfono es requerido
+          }
+          @if (phone?.errors?.['pattern']) {
+          Ingresa 10 dígitos sin espacios
+          }
+        </span>
+        }
       </div>
 
       <div class="form-group">
         <p>Contraseña *</p>
-        <input 
-          type="password" 
-          id="password"
-          placeholder="Tu contraseña"
-          formControlName="password"
-          autocomplete="new-password"
-          [class.is-invalid]="restaurantRegistrationForm.get('password')?.invalid"
-        >
+        <input type="password" id="password" placeholder="Tu contraseña" formControlName="password"
+          autocomplete="new-password" [class.is-invalid]="restaurantRegistrationForm.get('password')?.touched">
         @if (password?.invalid && password?.touched) {
-          <span class="error-message">
-            @if (password?.errors?.['required']) {
-              La contraseña es requerida
-            }
-            @if (password?.errors?.['minlength']) {
-              La contraseña debe tener al menos 6 caracteres
-            }
-          </span>
+        <span class="error-message">
+          @if (password?.errors?.['required']) {
+          La contraseña es requerida
+          }
+          @if (password?.errors?.['minlength']) {
+          La contraseña debe tener al menos 6 caracteres
+          }
+        </span>
         }
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <p>Ciudad *</p>
-          <input 
-            type="text" 
-            id="city"
-            placeholder="Medellín"
-            formControlName="city"
-            autocomplete="city"
-            [class.is-invalid]="restaurantRegistrationForm.get('city')?.invalid"
-          >
+          <input type="text" id="city" placeholder="Medellín" formControlName="city" autocomplete="city"
+            [class.is-invalid]="restaurantRegistrationForm.get('city')?.touched">
+          @if (city?.invalid && city?.touched) {
+          <span class="error-message">
+            La ciudad es requerida
+          </span>
+          }
         </div>
 
         <div class="form-group">
           <p>Dirección *</p>
-          <input 
-            type="text" 
-            id="address"
-            placeholder="Calle 123 #45-67"
-            formControlName="address"
-            autocomplete="address"
-            [class.is-invalid]="restaurantRegistrationForm.get('address')?.invalid"
-          >
+          <input type="text" id="address" placeholder="Calle 123 #45-67" formControlName="address"
+            autocomplete="address" [class.is-invalid]="restaurantRegistrationForm.get('address')?.touched">
+          @if (address?.invalid && address?.touched) {
+          <span class="error-message">
+            La dirección es requerida
+          </span>
+          }
         </div>
       </div>
 
       <button 
         type="submit" 
         class="login-button"
+        [disabled]="isLoading()"
       >
+        @if (isLoading()) {
+          Creando cuenta...
+        } @else {
+          Crear Cuenta en MatchFood
+        }
       </button>
     </form>
 
     <div class="login-link">
       <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
     </div>
-  </section>
+  </div>
 </main>
