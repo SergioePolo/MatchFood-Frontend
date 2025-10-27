@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User } from '../../interfaces/user';
 import { ServiceUsers } from '../../services/users';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-register-form',
-  imports: [ ReactiveFormsModule],
+  imports: [ ReactiveFormsModule, RouterLink],
   templateUrl: './user-register-form.html',
   styleUrl: './user-register-form.css'
 })

@@ -1,13 +1,12 @@
 <main>
-    <div class="imagenDelForm">
-      <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
-    </div>
-
-    <div class="form-title">
-      <h2>Regístrate</h2>
-    </div>
-
-    <form [formGroup]="userRegisterForm" (ngSubmit)="handleSubmit()">
+    <form class="formAcceso" [formGroup]="userRegisterForm" (ngSubmit)="handleSubmit()">
+      <div class="imagenDelForm">
+        <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+      </div>
+  
+      <div class="form-title">
+        <h2>Regístrate</h2>
+      </div>
       <div class="form-row">
         <div class="form-group">
           <p>Nombre *</p>
@@ -106,15 +105,12 @@
         >
       </div>
 
-      <button 
-        type="submit" 
-        class="login-button"
-      >
-
+      <button type="submit" class="login-button">
+        Crear cuenta en MatchFood
       </button>
-    </form>
 
-    <div class="login-link">
-      <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
-    </div>
+      <div class="login-link">
+        <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+      </div>
+  </form>
 </main>

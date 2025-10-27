@@ -3,10 +3,11 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 import { Credentials } from '../../interfaces/credentials';
 import { LoginService } from '../../services/login';
 import Swal from 'sweetalert2';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css'
 })

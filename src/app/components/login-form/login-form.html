@@ -1,13 +1,13 @@
 <main>
-  <div class="imagenDelForm">
-    <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
-  </div>
-
-  <div class="form-title">
-    <h2>Inicia sesión con tu cuenta</h2>
-  </div>
-
   <form [formGroup]="loginAppForm" (ngSubmit)="handleSubmit()">
+    <section class="formAcceso">
+    <div class="imagenDelForm">
+      <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+    </div>
+  
+    <div class="form-title">
+      <h2>Inicia sesión con tu cuenta</h2>
+    </div>
     <div class="form-group">
       <p>Ingresa tu email:</p>
       <input type="email" id="email" placeholder="tu@email.com" formControlName="email" autocomplete="email"
@@ -30,13 +30,17 @@
         <p>Selecciona tu rol:</p>
       </select>
     </div>
+    <button 
+    type="submit" 
+    class="login-button">
+    Ingresa a MatchFood
+  </button>
 
-    <button type="submit" class="login-button">
-    </button>
-  </form>
 
   <div class="register-link">
     <a routerLink="**">¿Olvidaste tu contraseña?</a>
     <p>¿No tienes cuenta? <a routerLink="/crear-usuario"><strong>Regístrate aquí</strong></a></p>
   </div>
+  </section>
+</form>
 </main>
