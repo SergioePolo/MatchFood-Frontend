@@ -25,6 +25,30 @@ export class RestaurantRegisterForm {
     address: new FormControl('', [Validators.required])
   })
 
+  get password() {
+    return this.restaurantRegistrationForm.get('password');
+  }
+
+  get name() {
+    return this.restaurantRegistrationForm.get('name');
+  }
+
+  get email() {
+    return this.restaurantRegistrationForm.get('email');
+  }
+
+  get phone() {
+    return this.restaurantRegistrationForm.get('phone');
+  }
+
+  get city() {
+    return this.restaurantRegistrationForm.get('city');
+  }
+
+  get address() {
+    return this.restaurantRegistrationForm.get('address');
+  }
+
   handleSubmit() {
     if (this.restaurantRegistrationForm.invalid) {
       this.restaurantRegistrationForm.markAllAsTouched();

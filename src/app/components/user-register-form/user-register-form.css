@@ -32,9 +32,10 @@ main {
 
 .form-title {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0;
     color:#4A2C2A;
 }
+
 
 .formAcceso {
     background-color: var(--text_color);
@@ -88,7 +89,6 @@ main {
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-    font-family: 'Roboto', sans-serif;
     margin-bottom: 20px; 
     color: #6b6b6b;; 
     
@@ -170,32 +170,28 @@ main {
     cursor: not-allowed;
 }
 
-.register-link,
 .login-link {
     text-align: center;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
-}
-
-.register-link p,
-.login-link p {
+  }
+  
+  .login-link p {
     color: #4A2C2A;
     margin: 0;
     font-size: 18px;
-}
-
-.register-link a,
-.login-link a {
-    color: var(--accent_color_1);
+  }
+  
+  .login-link a {
     font-weight: 600;
     text-decoration: none;
-}
-
-.register-link a:hover,
-.login-link a:hover {
+    color: #4A2C2A;
+  }
+  
+  .login-link a:hover {
     text-decoration: underline;
-}
+  }
 
 @media (max-width: 576px) {
     .formAcceso {

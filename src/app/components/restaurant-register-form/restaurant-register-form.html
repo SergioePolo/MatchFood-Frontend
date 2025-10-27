@@ -1,15 +1,14 @@
 <main>
-  <section class="formAcceso">
-    <div class="imagenDelForm">
-      <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
-    </div>
-
-    <div class="form-title">
-      <h2>Registra tu Restaurante</h2>
-      <p class="subtitle">Únete a MatchFood como socio restaurante</p>
-    </div>
-
     <form [formGroup]="restaurantRegistrationForm" (ngSubmit)="handleSubmit()">
+      <section class="formAcceso">
+        <div class="imagenDelForm">
+          <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+        </div>
+    
+        <div class="form-title">
+          <h2>Registra tu Restaurante</h2>
+          <p class="subtitle">Únete a MatchFood como socio restaurante</p>
+        </div>
       <div class="form-group">
         <p>Nombre del Restaurante *</p>
         <input 
@@ -95,14 +94,14 @@
       </div>
 
       <button 
-        type="submit" 
-        class="login-button"
-      >
-      </button>
+      type="submit" 
+      class="login-button">
+      Crear restaurante en MatchFood
+    </button>
+     
+      <div class="login-link">
+        <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+      </div>
+    </section>
     </form>
-
-    <div class="login-link">
-      <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
-    </div>
-  </section>
 </main>
