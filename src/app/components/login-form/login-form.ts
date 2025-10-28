@@ -1,10 +1,13 @@
 
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Credentials } from '../../interfaces/credentials';
 import { LoginService } from '../../services/login';
+import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-form',
@@ -26,6 +29,7 @@ export class LoginForm {
   });
 
   handleSubmit() {
+
     if (this.loginForm.valid) {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
@@ -35,9 +39,10 @@ export class LoginForm {
       this.errorMessage.set('');
 
       // Preparar credenciales para el backend
-      const credentials = {
+      const credentials: Credentials = {
         emailLogin: email!,
-        passwordLogin: password!
+        passwordLogin: password!,
+        role: role!
       };
 
       this._loginService.login(credentials).subscribe({
@@ -46,13 +51,13 @@ export class LoginForm {
           
           // Guardar token
           localStorage.setItem('token', response.token);
-          
-          // Redirigir según el rol
-          if (role === 'usuario') {
-            this._router.navigate(['/inicio']);
-          } else if (role === 'restaurante') {
-            this._router.navigate(['/perfil-del-restaurante']);
-          }
+          Swal.fire({
+            title:'Bienvenido',
+            text: response.mensaje,
+            icon:'success'
+          }).then(()=>{
+            this._loginService.redirectTo();
+          })
         },
         error: (error: any) => {
           console.error('Error en login:', error);
@@ -80,7 +85,6 @@ export class LoginForm {
       control?.markAsTouched();
     });
   }
-
   // Getters para validación en template
   get email() {
     return this.loginForm.get('email');
@@ -93,5 +97,4 @@ export class LoginForm {
   get role() {
     return this.loginForm.get('role');
   }
-
 }

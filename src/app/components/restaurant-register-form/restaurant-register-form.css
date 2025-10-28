@@ -31,7 +31,6 @@ main {
 }
 
 .formAcceso {
-    background-color: var(--text_color);
     display: flex;
     flex-direction: column;
     width: min(600px, 90vw);
