@@ -1,3 +1,4 @@
+
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Credentials } from '../../interfaces/credentials';
@@ -7,94 +8,93 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login-form',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css'
 })
-
 export class LoginForm {
-
-  private _serviceLogin = inject(LoginService);
+  private _loginService = inject(LoginService);
   private _router = inject(Router);
 
   errorMessage = signal<string>('');
   isLoading = signal<boolean>(false);
 
-  loginAppForm = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     role: new FormControl('', [Validators.required])
-  })
+  });
 
   handleSubmit() {
-    if (this.loginAppForm.invalid) {
-      const email = this.loginAppForm.value.email;
-      const password = this.loginAppForm.value.password;
-      const role = this.loginAppForm.value.role;
+
+    if (this.loginForm.valid) {
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
+      const role = this.loginForm.value.role;
 
       this.isLoading.set(true);
       this.errorMessage.set('');
 
-      const loginCredentials: Credentials = {
+      // Preparar credenciales para el backend
+      const credentials: Credentials = {
         emailLogin: email!,
         passwordLogin: password!,
         role: role!
       };
 
-      this._serviceLogin.login(loginCredentials).subscribe({
-        next: (res: any) => {
-          localStorage.setItem('token', res.token);
-          Swal.fire({
-            title: 'Welcome',
-            text: res.msg,
-            icon: 'success',
-            confirmButtonText: 'Continuemos'
-          });
-          this._serviceLogin.redirectTo();
+      this._loginService.login(credentials).subscribe({
+        next: (response: any) => {
+          console.log('Login exitoso:', response);
+          
+          // Guardar token
+          localStorage.setItem('token', response.token);
+          
+          // Redirigir según el rol
+          if (role === 'usuario') {
+            this._router.navigate(['/inicio']);
+          } else if (role === 'restaurante') {
+            this._router.navigate(['/perfil-del-restaurante']);
+          }
         },
-        error: (e: any) => {
-          Swal.fire({
-            title: 'Error',
-            text: e.error.mensaje,
-            icon: 'error',
-            confirmButtonText: 'Intenta otra vez'
-          });
+        error: (error: any) => {
+          console.error('Error en login:', error);
           this.errorMessage.set(
-            e.error?.mensaje || 'Error al iniciar sesión. Verifica tus credenciales.'
+            error.error?.mensaje || 'Error al iniciar sesión. Verifica tus credenciales.'
           );
           this.isLoading.set(false);
         },
-        complete:()=>{
+        complete: () => {
           this.isLoading.set(false);
         }
       });
-    }
-    else{
-      if (!this.loginAppForm.value.role) {
+    } else {
+      // Validar que se haya seleccionado un rol
+      if (!this.loginForm.value.role) {
         alert('Por favor selecciona uno de los dos tipos de usuarios antes de enviar el formulario');
       }
-      this.markFormGroupTouched(this.loginAppForm);
+      this.markFormGroupTouched(this.loginForm);
     }
   }
+
   private markFormGroupTouched(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(key => {
       const control = formGroup.get(key);
       control?.markAsTouched();
     });
   }
-
-  
+  // Getters para validación en template
   get email() {
-    return this.loginAppForm.get('email');
+    return this.loginForm.get('email');
   }
 
   get password() {
-    return this.loginAppForm.get('password');
+    return this.loginForm.get('password');
   }
 
   get role() {
-    return this.loginAppForm.get('role');
+    return this.loginForm.get('role');
   }
 }
