@@ -51,13 +51,13 @@ export class LoginForm {
           
           // Guardar token
           localStorage.setItem('token', response.token);
-          
-          // Redirigir según el rol
-          if (role === 'usuario') {
-            this._router.navigate(['/inicio']);
-          } else if (role === 'restaurante') {
-            this._router.navigate(['/perfil-del-restaurante']);
-          }
+          Swal.fire({
+            title:'Bienvenido',
+            text: response.mensaje,
+            icon:'success'
+          }).then(()=>{
+            this._loginService.redirectTo();
+          })
         },
         error: (error: any) => {
           console.error('Error en login:', error);
