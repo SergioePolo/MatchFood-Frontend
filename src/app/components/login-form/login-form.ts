@@ -6,7 +6,6 @@ import { LoginService } from '../../services/login';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +16,6 @@ import { Router } from '@angular/router';
 })
 export class LoginForm {
   private _loginService = inject(LoginService);
-  private _router = inject(Router);
 
   errorMessage = signal<string>('');
   isLoading = signal<boolean>(false);
@@ -46,9 +44,7 @@ export class LoginForm {
       };
 
       this._loginService.login(credentials).subscribe({
-        next: (response: any) => {
-          console.log('Login exitoso:', response);
-          
+        next: (response: any) => {          
           // Guardar token
           localStorage.setItem('token', response.token);
           Swal.fire({
