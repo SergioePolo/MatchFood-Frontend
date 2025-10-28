@@ -43,7 +43,8 @@ export class LoginService {
     if(this.roleValidation() === "restaurant"){
       this._router.navigate(['/perfil-del-restaurante']);
     }
-    else{
+
+    if(this.roleValidation() === "user"){
       this._router.navigate(['/inicio']);
     }
   }

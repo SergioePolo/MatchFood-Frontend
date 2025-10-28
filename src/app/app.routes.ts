@@ -28,6 +28,6 @@ export const routes: Routes = [
     {path: 'crear-usuario', component: UserRegister, title: 'Crea tu usuario'},
     {path: 'crear-restaurante', component:  RestaurantsRegister, title: 'Crea tu restaurante'},
     { path: 'reservar-mesa', component: ReserveRestaurantForm, title: 'Reserva una mesa',canActivate: [authGuard]},
-    {path: 'administracion', component: Dashboard, canActivate: [authGuard]},
+    {path: 'dashboard', component: Dashboard, canActivate: [authGuard]},
     {path:'**' , component: NotFound, title: '404 - No encontramos la página'},
 ];
