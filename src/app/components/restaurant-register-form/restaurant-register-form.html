@@ -10,121 +10,175 @@
     </div>
 
     @if (successMessage()) {
-    <div class="success-alert">
-      {{ successMessage() }}
-    </div>
+      <div class="success-alert">
+        {{ successMessage() }}
+      </div>
     }
 
     @if (errorMessage()) {
-    <div class="error-alert">
-      {{ errorMessage() }}
-    </div>
+      <div class="error-alert">
+        {{ errorMessage() }}
+      </div>
     }
 
     <form [formGroup]="restaurantRegistrationForm" (ngSubmit)="handleSubmit()">
       <div class="form-group">
         <p>Nombre del Restaurante *</p>
-        <input type="text" id="restaurantName" placeholder="La Casa del Sabor" formControlName="name"
-          autocomplete="name" [class.is-invalid]="restaurantRegistrationForm.get('name')?.touched">
-        @if (restaurantName?.invalid && restaurantName?.touched) {
-        <span class="error-message">
-          @if (restaurantName?.errors?.['required']) {
-          El nombre del restaurante es requerido
-          }
-          @if (restaurantName?.errors?.['minlength']) {
-          Mínimo 3 caracteres
-          }
-        </span>
+        <input
+          type="text"
+          id="restaurantName"
+          placeholder="La Casa del Sabor"
+          formControlName="name"
+          autocomplete="name"
+          [class.is-invalid]="restaurantRegistrationForm.get('name')?.touched"
+        >
+        @if (
+          restaurantRegistrationForm.get('name')?.invalid &&
+          restaurantRegistrationForm.get('name')?.touched
+        ) {
+          <span class="error-message">
+            @if (restaurantRegistrationForm.get('name')?.errors?.['required']) {
+              El nombre del restaurante es requerido
+            }
+            @if (restaurantRegistrationForm.get('name')?.errors?.['minlength']) {
+              Mínimo 3 caracteres
+            }
+          </span>
         }
       </div>
 
       <div class="form-group">
         <p>Email del Restaurante *</p>
-        <input type="email" id="email" placeholder="restaurante@gmail.com" formControlName="email" autocomplete="email"
-          [class.is-invalid]="restaurantRegistrationForm.get('email')?.touched">
-        @if (email?.invalid && email?.touched) {
-        <span class="error-message">
-          @if (email?.errors?.['required']) {
-          El email es requerido
-          }
-          @if (email?.errors?.['email']) {
-          Ingresa un email válido
-          }
-        </span>
+        <input
+          type="email"
+          id="email"
+          placeholder="restaurante@gmail.com"
+          formControlName="email"
+          autocomplete="email"
+          [class.is-invalid]="restaurantRegistrationForm.get('email')?.touched"
+        >
+        @if (
+          restaurantRegistrationForm.get('email')?.invalid &&
+          restaurantRegistrationForm.get('email')?.touched
+        ) {
+          <span class="error-message">
+            @if (restaurantRegistrationForm.get('email')?.errors?.['required']) {
+              El email es requerido
+            }
+            @if (restaurantRegistrationForm.get('email')?.errors?.['email']) {
+              Ingresa un email válido
+            }
+          </span>
         }
       </div>
 
       <div class="form-group">
         <p>Teléfono de Contacto *</p>
-        <input type="tel" id="phone" placeholder="3001234567" formControlName="phone" autocomplete="phone"
-          [class.is-invalid]="restaurantRegistrationForm.get('phone')?.touched">
-        @if (phone?.invalid && phone?.touched) {
-        <span class="error-message">
-          @if (phone?.errors?.['required']) {
-          El teléfono es requerido
-          }
-          @if (phone?.errors?.['pattern']) {
-          Ingresa 10 dígitos sin espacios
-          }
-        </span>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="3001234567"
+          formControlName="phone"
+          autocomplete="phone"
+          [class.is-invalid]="restaurantRegistrationForm.get('phone')?.touched"
+        >
+        @if (
+          restaurantRegistrationForm.get('phone')?.invalid &&
+          restaurantRegistrationForm.get('phone')?.touched
+        ) {
+          <span class="error-message">
+            @if (restaurantRegistrationForm.get('phone')?.errors?.['required']) {
+              El teléfono es requerido
+            }
+            @if (restaurantRegistrationForm.get('phone')?.errors?.['pattern']) {
+              Ingresa 10 dígitos sin espacios
+            }
+          </span>
         }
       </div>
 
       <div class="form-group">
         <p>Contraseña *</p>
-        <input type="password" id="password" placeholder="Tu contraseña" formControlName="password"
-          autocomplete="new-password" [class.is-invalid]="restaurantRegistrationForm.get('password')?.touched">
-        @if (password?.invalid && password?.touched) {
-        <span class="error-message">
-          @if (password?.errors?.['required']) {
-          La contraseña es requerida
-          }
-          @if (password?.errors?.['minlength']) {
-          La contraseña debe tener al menos 6 caracteres
-          }
-        </span>
+        <input
+          type="password"
+          id="password"
+          placeholder="Tu contraseña"
+          formControlName="password"
+          autocomplete="new-password"
+          [class.is-invalid]="restaurantRegistrationForm.get('password')?.touched"
+        >
+        @if (
+          restaurantRegistrationForm.get('password')?.invalid &&
+          restaurantRegistrationForm.get('password')?.touched
+        ) {
+          <span class="error-message">
+            @if (restaurantRegistrationForm.get('password')?.errors?.['required']) {
+              La contraseña es requerida
+            }
+            @if (restaurantRegistrationForm.get('password')?.errors?.['minlength']) {
+              La contraseña debe tener al menos 6 caracteres
+            }
+          </span>
         }
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <p>Ciudad *</p>
-          <input type="text" id="city" placeholder="Medellín" formControlName="city" autocomplete="city"
-            [class.is-invalid]="restaurantRegistrationForm.get('city')?.touched">
-          @if (city?.invalid && city?.touched) {
-          <span class="error-message">
-            La ciudad es requerida
-          </span>
+          <input
+            type="text"
+            id="city"
+            placeholder="Medellín"
+            formControlName="city"
+            autocomplete="city"
+            [class.is-invalid]="restaurantRegistrationForm.get('city')?.touched"
+          >
+          @if (
+            restaurantRegistrationForm.get('city')?.invalid &&
+            restaurantRegistrationForm.get('city')?.touched
+          ) {
+            <span class="error-message">
+              @if (restaurantRegistrationForm.get('city')?.errors?.['required']) {
+                La ciudad es requerida
+              }
+            </span>
           }
         </div>
 
         <div class="form-group">
           <p>Dirección *</p>
-          <input type="text" id="address" placeholder="Calle 123 #45-67" formControlName="address"
-            autocomplete="address" [class.is-invalid]="restaurantRegistrationForm.get('address')?.touched">
-          @if (address?.invalid && address?.touched) {
-          <span class="error-message">
-            La dirección es requerida
-          </span>
+          <input
+            type="text"
+            id="address"
+            placeholder="Calle 123 #45-67"
+            formControlName="address"
+            autocomplete="address"
+            [class.is-invalid]="restaurantRegistrationForm.get('address')?.touched"
+          >
+          @if (
+            restaurantRegistrationForm.get('address')?.invalid &&
+            restaurantRegistrationForm.get('address')?.touched
+          ) {
+            <span class="error-message">
+              @if (restaurantRegistrationForm.get('address')?.errors?.['required']) {
+                La dirección es requerida
+              }
+            </span>
           }
         </div>
       </div>
 
-      <button 
-        type="submit" 
-        class="login-button"
-        [disabled]="isLoading()"
-      >
+      <button type="submit" class="login-button" [disabled]="isLoading()">
         @if (isLoading()) {
           Creando cuenta...
         } @else {
           Crear Cuenta en MatchFood
         }
       </button>
-    </form>
 
-    <div class="login-link">
-      <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
-    </div>
+      <div class="login-link">
+        <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+      </div>
+    </form>
   </div>
 </main>

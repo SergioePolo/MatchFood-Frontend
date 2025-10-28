@@ -1,0 +1,45 @@
+<main>
+  <form>
+    <div class="formularioReserva">
+      <div class="imagenDelForm">
+        <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+      </div>
+      <div class="form-title">
+        <h2>Reserva tu mesa</h2>
+      </div>
+      
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha de Reserva *</label>
+        <div class="input-with-icon">
+          <i class="fas fa-calendar-alt input-icon" onclick="document.getElementById('fecha').showPicker()"></i>
+          <input type="date" class="form-control" id="fecha">
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="hora" class="form-label">Hora de Reserva *</label>
+        <div class="input-with-icon">
+          <i class="fas fa-clock input-icon" onclick="document.getElementById('hora').showPicker()"></i>
+          <input type="time" class="form-control" id="hora">
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="personas" class="form-label">Número de Personas *</label>
+        <div class="input-with-icon">
+          <i class="fas fa-user-plus input-icon"></i>
+          <input type="number" class="form-control" id="personas" min="1" placeholder="Selecciona cuantas personas vendrán">
+        </div>
+      </div>
+  
+      <div class="form-field-textarea">
+        <textarea id="comentarios" rows="3" placeholder="Escribe algún comentario para la reserva"></textarea>
+      </div>
+  
+      <button type="submit" class="login-button">
+        Reservar
+      </button>
+    
+    </div>
+  </form>
+  </main>
