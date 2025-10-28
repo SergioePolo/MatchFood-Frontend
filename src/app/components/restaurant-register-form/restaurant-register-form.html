@@ -1,0 +1,107 @@
+<main>
+    <form [formGroup]="restaurantRegistrationForm" (ngSubmit)="handleSubmit()">
+      <section class="formAcceso">
+        <div class="imagenDelForm">
+          <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+        </div>
+    
+        <div class="form-title">
+          <h2>Registra tu Restaurante</h2>
+          <p class="subtitle">Únete a MatchFood como socio restaurante</p>
+        </div>
+      <div class="form-group">
+        <p>Nombre del Restaurante *</p>
+        <input 
+          type="text" 
+          id="restaurantName"
+          placeholder="La Casa del Sabor"
+          formControlName="name"
+          autocomplete="name"
+          [class.is-invalid]="restaurantRegistrationForm.get('name')?.invalid"
+          >
+      </div>
+
+      <div class="form-group">
+        <p>Email del Restaurante *</p>
+        <input 
+          type="email" 
+          id="email"
+          placeholder="restaurante@gmail.com"
+          formControlName="email"
+          autocomplete="email"
+          [class.is-invalid]="restaurantRegistrationForm.get('email')?.invalid"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Teléfono de Contacto *</p>
+        <input 
+          type="tel" 
+          id="phone"
+          placeholder="3001234567"
+          formControlName="phone"
+          autocomplete="phone"
+          [class.is-invalid]="restaurantRegistrationForm.get('phone')?.invalid"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Contraseña *</p>
+        <input 
+          type="password" 
+          id="password"
+          placeholder="Tu contraseña"
+          formControlName="password"
+          autocomplete="new-password"
+          [class.is-invalid]="restaurantRegistrationForm.get('password')?.invalid"
+        >
+        @if (password?.invalid && password?.touched) {
+          <span class="error-message">
+            @if (password?.errors?.['required']) {
+              La contraseña es requerida
+            }
+            @if (password?.errors?.['minlength']) {
+              La contraseña debe tener al menos 6 caracteres
+            }
+          </span>
+        }
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <p>Ciudad *</p>
+          <input 
+            type="text" 
+            id="city"
+            placeholder="Medellín"
+            formControlName="city"
+            autocomplete="city"
+            [class.is-invalid]="restaurantRegistrationForm.get('city')?.invalid"
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Dirección *</p>
+          <input 
+            type="text" 
+            id="address"
+            placeholder="Calle 123 #45-67"
+            formControlName="address"
+            autocomplete="address"
+            [class.is-invalid]="restaurantRegistrationForm.get('address')?.invalid"
+          >
+        </div>
+      </div>
+
+      <button 
+      type="submit" 
+      class="login-button">
+      Crear restaurante en MatchFood
+    </button>
+     
+      <div class="login-link">
+        <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+      </div>
+    </section>
+    </form>
+</main>

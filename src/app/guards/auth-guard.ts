@@ -13,7 +13,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     return false;
   }
 
-  if(!_LoginService.isAdmin()){
+  if(!_LoginService.roleValidation()){
     alert('No puedes acceder a está página, si crees que es un error contacta con el administrador del sistema');
     _router.navigate(['/administracion']);
     return false;

@@ -17,7 +17,7 @@
 
 body {
     background-color: var(--secondary_color);
-   font-family: var(--font_family);
+    font-family: 'Roboto', sans-serif;
     color: var(--text_color);
 }
 
@@ -28,12 +28,6 @@ main {
     align-items: center;
     padding: 40px 20px;
     min-height: 100vh;
-}
-
-.form-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color:#4A2C2A;
 }
 
 .formAcceso {
@@ -52,19 +46,40 @@ main {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    transition: transform 0.4s ease;
 }
 
 .imagenDelForm img {
-    height: 90px;
+    height: 80px;
     width: auto;
     object-fit: contain;
 }
 
-.imagenDelForm:hover {
-    transform: scale(1.05);
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color:#4A2C2A;
 }
 
+.form-title h2 {
+    color: var(--primary_color);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.form-title .subtitle {
+    color: var(--primary_color);
+    font-size: 15px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
 .form-group {
     display: flex;
@@ -88,7 +103,6 @@ main {
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-    font-family: 'Roboto', sans-serif;
     margin-bottom: 20px; 
     color: #6b6b6b;; 
     
@@ -142,6 +156,7 @@ main {
     margin-bottom: 20px;
     font-size: 14px;
 }
+
 .login-button {
     width: 100%;
     padding: 15px;
@@ -160,17 +175,15 @@ main {
     font-weight: bold;
     transition: transform 0.4s ease;
 }
+
 .login-button:hover:not(:disabled) {
     transform: scale(1.05);
-  
 }
 
 .login-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
-
-.register-link,
 .login-link {
     text-align: center;
     margin-top: 20px;
@@ -178,17 +191,34 @@ main {
     border-top: 1px solid #ddd;
 }
 
+.login-link p {
+    color: var(--primary_color);
+    margin: 0;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: var(--accent_color_1);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
 .register-link p,
 .login-link p {
-    color: #4A2C2A;
+    color: #4A2C2A; 
     margin: 0;
     font-size: 18px;
 }
 
 .register-link a,
 .login-link a {
-    color: var(--accent_color_1);
-    font-weight: 600;
+    color: #4A2C2A;
+    font-size: 18px;
     text-decoration: none;
 }
 
@@ -205,6 +235,10 @@ main {
 
     .imagenDelForm img {
         height: 60px;
+    }
+
+    .form-title h2 {
+        font-size: 1.5rem;
     }
 
     .form-row {

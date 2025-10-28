@@ -1,0 +1,116 @@
+<main>
+    <form class="formAcceso" [formGroup]="userRegisterForm" (ngSubmit)="handleSubmit()">
+      <div class="imagenDelForm">
+        <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+      </div>
+  
+      <div class="form-title">
+        <h2>Regístrate</h2>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <p>Nombre *</p>
+          <input 
+            type="text" 
+            id="firstName"
+            placeholder="Juan"
+            formControlName="firstName"
+            autocomplete="firstName"
+            [class.is-invalid]="userRegisterForm.get('firstName')?.invalid"
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Apellido *</p>
+          <input 
+            type="text" 
+            id="lastName"
+            placeholder="Pérez"
+            formControlName="lastName"
+            autocomplete="lastName"
+            [class.is-invalid]="userRegisterForm.get('lastName')?.invalid"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>Email *</p>
+        <input 
+          type="email" 
+          id="email"
+          placeholder="tu@email.com"
+          formControlName="email"
+          autocomplete="email"
+            [class.is-invalid]="userRegisterForm.get('email')?.invalid"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Teléfono *</p>
+        <input 
+          type="tel" 
+          id="phone"
+          placeholder="3001234567"
+          formControlName="phone"
+          autocomplete="phone"
+          [class.is-invalid]="userRegisterForm.get('phone')?.invalid"
+        >
+      </div>
+
+      <div class="form-group">
+        <p>Contraseña *</p>
+        <input 
+          type="password" 
+          id="password"
+          placeholder="Tu contraseña"
+          formControlName="password"
+          autocomplete="new-password"
+            [class.is-invalid]="userRegisterForm.get('password')?.invalid"
+        >
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <p>Ciudad *</p>
+          <input 
+            type="text" 
+            id="city"
+            placeholder="Medellín"
+            formControlName="city"
+            autocomplete="city"
+            [class.is-invalid]="userRegisterForm.get('city')?.invalid"
+          >
+        </div>
+
+        <div class="form-group">
+          <p>Preferencias</p>
+          <select id="preferences" formControlName="preferences">
+            <option value="">Selecciona una opción</option>
+            <option value="carne">Carne</option>
+            <option value="pescado">Pescado</option>
+            <option value="pollo">Pollo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>Dirección *</p>
+        <input 
+          type="text" 
+          id="address"
+          placeholder="Calle 123 #45-67"
+          formControlName="address"
+          autocomplete="address"
+          [class.is-invalid]="userRegisterForm.get('address')?.invalid"
+        >
+      </div>
+
+      <button type="submit" class="login-button">
+        Crear cuenta en MatchFood
+      </button>
+
+      <div class="login-link">
+        <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+      </div>
+  </form>
+</main>
