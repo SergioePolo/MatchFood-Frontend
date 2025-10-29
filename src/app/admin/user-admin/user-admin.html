@@ -1,11 +1,14 @@
 <main class="panel-admin">
   <div class="contenido-principal">
+    <!-- Encabezado -->
     <header class="encabezado">
-      <h1>Panel de Administración</h1>
+      <h1>Dashboard de Estadísticas</h1>
       <p>Bienvenido de vuelta, Admin MatchFood</p>
     </header>
 
+    <!-- Tarjetas de estadísticas -->
     <section class="tarjetas-estadisticas">
+      <!-- Usuarios -->
       <article class="tarjeta">
         <div class="tarjeta-top">
           <div class="tarjeta-info">
@@ -28,6 +31,7 @@
         </div>
       </article>
 
+      <!-- Restaurantes -->
       <article class="tarjeta">
         <div class="tarjeta-top">
           <div class="tarjeta-info">
@@ -50,6 +54,7 @@
         </div>
       </article>
 
+      <!-- Reservas -->
       <article class="tarjeta">
         <div class="tarjeta-top">
           <div class="tarjeta-info">
@@ -73,21 +78,30 @@
       </article>
     </section>
 
+    <!-- Gráficos -->
     <section class="seccion-graficos">
+      <!-- Gráfico principal -->
       <div class="grafico-principal">
         <div class="grafico-header">
           <div>
             <h3>Rendimiento general</h3>
             <p>Últimos 6 meses</p>
           </div>
-          <select class="selector-periodo" [(ngModel)]="selectedPeriod">
+          <select class="selector-periodo" [(ngModel)]="selectedPeriod" (change)="onPeriodChange()">
             <option value="7">Últimos 7 días</option>
             <option value="30">Últimos 30 días</option>
-            <option value="180" selected>Últimos 6 meses</option>
+            <option [value]="180" selected>Últimos 6 meses</option>
           </select>
         </div>
-
         
+        <!-- Espacio para el gráfico -->
+        <div class="grafico-placeholder">
+          <p>📊 Aquí irá tu gráfico de líneas/barras</p>
+          <small>Puedes integrar Chart.js, Recharts o similar</small>
+        </div>
+      </div>
+
+      <!-- Categorías populares -->
       <aside class="categorias-populares">
         <h3>Categorías populares</h3>
         <div class="lista-categorias">

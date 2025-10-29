@@ -12,7 +12,7 @@ import { Welcome } from './pages/welcome/welcome';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
 import { ReserveRestaurantForm } from './components/reserve-restaurant-form/reserve-restaurant-form';
-
+import { UserAdmin } from './admin/user-admin/user-admin';
 
 export const routes: Routes = [
     {path: '' , component: Welcome, title:'Bienvenido a Match'},
@@ -29,5 +29,6 @@ export const routes: Routes = [
     {path: 'crear-restaurante', component:  RestaurantsRegister, title: 'Crea tu restaurante'},
     { path: 'reservar-mesa/:id', component: ReserveRestaurantForm, title: 'Reserva una mesa',canActivate: [authGuard]},
     {path: 'dashboard', component: Dashboard, canActivate: [authGuard]},
-    {path:'**' , component: NotFound, title: '404 - No encontramos la página'},
+    {path:'**' , component: NotFound, title: '404 - No encontramos }}la página'},
+    {path: 'admin/user-admin', component: UserAdmin, title: 'Administración de usuarios', canActivate: [authGuard]},
 ];
