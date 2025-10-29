@@ -26,4 +26,8 @@ export class ServiceRestaurants {
   deleteRestaurant(id: string){
     return this._httpClient.delete(`${this.apiURL}/restaurant/${id}`);
   };
+
+  searchRestaurantById(id: string){
+    return this._httpClient.get(`${this.apiURL}/restaurant/getById/${id}`);
+  };
 }

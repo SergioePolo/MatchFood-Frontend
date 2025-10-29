@@ -67,7 +67,9 @@ export class LoginService {
       this._router.navigate(['/dashboard']);
     } else if (role === 'restaurant') {
       this._router.navigate(['/perfil-del-restaurante']);
-    } else {
+    }
+
+    if(this.roleValidation() === "user"){
       this._router.navigate(['/inicio']);
     }
   }
