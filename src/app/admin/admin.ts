@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { LoginService } from '../services/login';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './admin.html',
   styleUrl: './admin.css'
 })
@@ -19,7 +19,8 @@ export class Admin {
   logout() {
     this._loginService.logout();
   }
-   abrirUsuarios() {
+
+  abrirUsuarios() {
     this.router.navigate(['/admin/user-admin']);
   }
 

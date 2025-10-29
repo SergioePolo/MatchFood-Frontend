@@ -1,18 +1,40 @@
 <main class="admin-container">
-  <h1 class="titulo-admin">Panel de Administración</h1>
+  <h1 class="titulo-admin">Panel de Administración MatchFood</h1>
+  <p class="subtitulo-admin">Gestiona tu plataforma desde un solo lugar</p>
 
   <section class="acciones-admin">
-    <div class="tarjeta-admin" (click)="abrirUsuarios()">
+    <article class="tarjeta-admin" (click)="abrirUsuarios()">
       <i class="bi bi-people-fill icono"></i>
       <h2>Gestión de Usuarios</h2>
       <p>Ver, editar o eliminar usuarios registrados en la plataforma.</p>
       <button class="btn-ver">Ir a usuarios</button>
-    </div>
+    </article>
 
-    <div class="tarjeta-admin" (click)="abrirRestaurantes()">
+    <article class="tarjeta-admin" (click)="abrirRestaurantes()">
       <i class="bi bi-shop icono"></i>
       <h2>Gestión de Restaurantes</h2>
       <p>Administrar restaurantes, menús y su disponibilidad.</p>
       <button class="btn-ver">Ir a restaurantes</button>
-    </div>
+    </article>
+
+    <article class="tarjeta-admin">
+      <i class="bi bi-calendar-check icono"></i>
+      <h2>Gestión de Reservas</h2>
+      <p>Visualiza y administra todas las reservas de la plataforma.</p>
+      <button class="btn-ver">Ir a reservas</button>
+    </article>
+
+    <article class="tarjeta-admin">
+      <i class="bi bi-star-fill icono"></i>
+      <h2>Valoraciones</h2>
+      <p>Revisa las valoraciones y comentarios de los usuarios.</p>
+      <button class="btn-ver">Ir a valoraciones</button>
+    </article>
   </section>
+
+  
+  <div class="contenido-dinamico">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+

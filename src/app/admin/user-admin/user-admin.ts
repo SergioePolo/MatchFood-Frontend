@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-user-admin',
+  standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: '',
-  styleUrl: '',})
-export class Dashboard {
-  selectedPeriod = 180;
+  templateUrl: './user-admin.html',
+  styleUrl: './user-admin.css'
+})
+export class UserAdmin implements OnInit {
+  selectedPeriod: number = 180;
 
   stats = {
     totalUsers: 1240,
@@ -31,7 +33,21 @@ export class Dashboard {
     { name: 'Mexicana', value: 10, color: 'color-4' },
   ];
 
+  ngOnInit(): void {
+    this.cargarEstadisticas();
+  }
+
+  cargarEstadisticas(): void {
+    console.log('Cargando estadísticas...');
+  }
+
   onPeriodChange(): void {
     console.log('Periodo cambiado:', this.selectedPeriod);
+    this.cargarEstadisticas();
+  }
+
+  calcularCrecimiento(actual: number, anterior: number): number {
+    if (anterior === 0) return 0;
+    return Number((((actual - anterior) / anterior) * 100).toFixed(1));
   }
 }
