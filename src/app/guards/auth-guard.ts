@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const _LoginService = inject(LoginService);
   const _router = inject(Router);
 
-  if(!_LoginService.isLogggedIn()){
+  if(!_LoginService.isLoggedIn()){
     alert('No haz iniciado sesión, inicia tu sesión para poder accerder al sistema');
     _router.navigate(['/inicio-de-sesion']);
     return false;
