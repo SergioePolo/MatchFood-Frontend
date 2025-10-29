@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Card } from '../../components/card/card';
+// import { Card } from '../../components/card/card';
 @Component({
   selector: 'app-rate-booking',
-  imports: [ Card ],
+  imports: [ ],
   templateUrl: './rate-booking.html',
   styleUrl: './rate-booking.css'
 })

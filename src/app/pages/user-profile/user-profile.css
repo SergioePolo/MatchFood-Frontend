@@ -1,0 +1,233 @@
+
+.row > [class*='col-'] {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.titulo-perfil,
+.titulo-valoraciones {
+    color: #F5F5DC;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 15px; 
+    margin-bottom: 15px;
+}
+
+.tarjeta-perfil {
+    background-color: #F5F5DC;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 0; 
+}
+
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #FFD700;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.foto-perfil:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #FFD700; 
+}
+
+.nombre-usuario {
+    font-size: 32px;
+    font-weight: bold;
+    color: #4A2C2A;
+    margin-bottom: 10px;
+}
+
+.info-usuario {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.info-usuario p {
+    font-size: 16px;
+    color: #4A2C2A;
+    margin-bottom: 10px;
+}
+
+.tarjeta-reservas {
+    background-color: #F5F5DC;
+    border-radius: 25px;
+    padding: 30px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 18px;
+    color: #4A2C2A;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #D4C5A9;
+}
+
+
+.reserva {
+    background: linear-gradient(to bottom, #FFFEF9 0%, #FFF8E7 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #FFD700;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.reserva:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.nombre-restaurante {
+    font-size: 19px;
+    font-weight: bold;
+    color: #4A2C2A;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E8DCC4;
+}
+
+.detalle {
+    font-size: 15px;
+    color:#4A2C2A ;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detalle i {
+    color: #4A2C2A;
+    font-size: 16px;
+}
+
+.sin-reservas {
+    text-align: center;
+    color: #4A2C2A;
+    padding: 30px;
+    font-style: italic;
+}
+
+.tarjeta-valoracion {
+    background-color: #F5F5DC;
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.tarjeta-valoracion .row {
+    display: flex;
+    align-items: stretch; 
+    height: 100%; 
+}
+.tarjeta-valoracion .col-md-5,
+.tarjeta-valoracion .col-md-7 {
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-valoracion .col-md-7 {
+    justify-content: space-between; 
+}
+
+.foto-restaurante {
+    width: 100%;
+    border-radius: 15px;
+    height: 130%; 
+    min-height: 250px; 
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    border: 3px solid #FFD700;
+}
+
+.foto-restaurante:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+.nombre-lugar {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4A2C2A;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.comentario {
+    color: #4A2C2A;
+    font-size: 15px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.estrellas {
+    color: #FFD700 !important;
+    font-size: 30px;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.8));
+}
+
+
+.estrellas i {
+    color: inherit; 
+}
+
+.botones-container {
+    display: flex !important;
+    gap: 25px !important;
+    margin-top: auto;
+}
+
+.botones {
+    background-color: #FFD700;
+    border: none;
+    color: #4A2C2A;
+    padding: 12px 35px;
+    border-radius: 50px; 
+    font-weight: bold;
+    font-size: 16px;
+    flex: 0 1 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.botones:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.botones:active {
+    transform: translateY(0);
+}
+
+i {
+    color: #4A2C2A; 
+    margin-right: 3px; 
+}
+
+.sin-reservas {
+    text-align: center;
+    color: #4A2C2A;
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .tarjeta-valoracion .row {
+        flex-direction: column;
+    }
+}

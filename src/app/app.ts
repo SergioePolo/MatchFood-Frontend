@@ -5,6 +5,7 @@ import { Footer } from './components/footer/footer';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs';
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Header, Footer],

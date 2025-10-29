@@ -19,9 +19,7 @@ export const routes: Routes = [
     {path: 'nosotros', component: AboutUs, title: 'Acerca de MatchFood'},
     {path: 'inicio', component: Home, title: 'Encuentra tu restaurante', canActivate: [authGuard]},
     {path: 'inicio-de-sesion', component: Login, title: 'Inicia sesión'},
-    {path: 'califica-tu-reserva', component: RateBooking, title: 'Califica tu última reserva', 
-        // canActivate: [authGuard]
-        },
+    {path: 'califica-tu-reserva', component: RateBooking, title: 'Califica tu última reserva', canActivate: [authGuard]},
     {path: 'perfil-del-restaurante', component: RestaurantProfile, title: 'Perfil del restaurante', canActivate: [authGuard]},
     {path: 'crear-restaurante', component: RestaurantsRegister, title: 'Crear tu restaurante'},
     {path: 'perfil-de-usuario', component: UserProfile, title: 'Perfil de usuario', canActivate: [authGuard]},
