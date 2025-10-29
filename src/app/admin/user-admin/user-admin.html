@@ -1,0 +1,107 @@
+<main class="panel-admin">
+  <div class="contenido-principal">
+    <header class="encabezado">
+      <h1>Panel de Administración</h1>
+      <p>Bienvenido de vuelta, Admin MatchFood</p>
+    </header>
+
+    <section class="tarjetas-estadisticas">
+      <article class="tarjeta">
+        <div class="tarjeta-top">
+          <div class="tarjeta-info">
+            <h3>Usuarios</h3>
+            <div class="tarjeta-valores">
+              <p class="valor">{{ stats.totalUsers }}</p>
+              <div [ngClass]="stats.usersGrowth >= 0 ? 'porcentaje positivo' : 'porcentaje negativo'">
+                <i [ngClass]="stats.usersGrowth >= 0 ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
+                <span>{{ stats.usersGrowth >= 0 ? '+' : '' }}{{ stats.usersGrowth }}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="tarjeta-icono fondo-usuarios">
+            <i class="bi bi-people"></i>
+          </div>
+        </div>
+        <div class="tarjeta-footer">
+          <span>vs. mes anterior</span>
+          <strong>{{ stats.usersLastMonth }}</strong>
+        </div>
+      </article>
+
+      <article class="tarjeta">
+        <div class="tarjeta-top">
+          <div class="tarjeta-info">
+            <h3>Restaurantes</h3>
+            <div class="tarjeta-valores">
+              <p class="valor">{{ stats.totalRestaurants }}</p>
+              <div [ngClass]="stats.restaurantsGrowth >= 0 ? 'porcentaje positivo' : 'porcentaje negativo'">
+                <i [ngClass]="stats.restaurantsGrowth >= 0 ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
+                <span>{{ stats.restaurantsGrowth >= 0 ? '+' : '' }}{{ stats.restaurantsGrowth }}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="tarjeta-icono fondo-restaurantes">
+            <i class="bi bi-shop"></i>
+          </div>
+        </div>
+        <div class="tarjeta-footer">
+          <span>vs. mes anterior</span>
+          <strong>{{ stats.restaurantsLastMonth }}</strong>
+        </div>
+      </article>
+
+      <article class="tarjeta">
+        <div class="tarjeta-top">
+          <div class="tarjeta-info">
+            <h3>Reservas</h3>
+            <div class="tarjeta-valores">
+              <p class="valor">{{ stats.totalBookings }}</p>
+              <div [ngClass]="stats.bookingsGrowth >= 0 ? 'porcentaje positivo' : 'porcentaje negativo'">
+                <i [ngClass]="stats.bookingsGrowth >= 0 ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
+                <span>{{ stats.bookingsGrowth >= 0 ? '+' : '' }}{{ stats.bookingsGrowth }}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="tarjeta-icono fondo-reservas">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+        </div>
+        <div class="tarjeta-footer">
+          <span>vs. mes anterior</span>
+          <strong>{{ stats.bookingsLastMonth }}</strong>
+        </div>
+      </article>
+    </section>
+
+    <section class="seccion-graficos">
+      <div class="grafico-principal">
+        <div class="grafico-header">
+          <div>
+            <h3>Rendimiento general</h3>
+            <p>Últimos 6 meses</p>
+          </div>
+          <select class="selector-periodo" [(ngModel)]="selectedPeriod">
+            <option value="7">Últimos 7 días</option>
+            <option value="30">Últimos 30 días</option>
+            <option value="180" selected>Últimos 6 meses</option>
+          </select>
+        </div>
+
+        
+      <aside class="categorias-populares">
+        <h3>Categorías populares</h3>
+        <div class="lista-categorias">
+          <div *ngFor="let category of categories" class="categoria">
+            <div class="categoria-header">
+              <span>{{ category.name }}</span>
+              <strong>{{ category.value }}%</strong>
+            </div>
+            <div class="barra">
+              <div class="relleno" [ngClass]="category.color" [style.width.%]="category.value"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </div>
+</main>
