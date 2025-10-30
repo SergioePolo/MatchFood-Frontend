@@ -1,11 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ServiceRestaurants } from '../../services/restaurants';
+import { Restaurant } from '../../interfaces/restaurant';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
-  imports: [],
+  imports: [RouterLink, CommonModule],
   templateUrl: './carousel.html',
   styleUrl: './carousel.css'
 })
-export class Carousel {
+export class Carousel implements OnInit{
+  _restaurantService = inject(ServiceRestaurants);
+  restaurantsList: Restaurant[] = [];
 
+  listRestaurants() {
+    this._restaurantService.searchRestaurants().subscribe({
+      next: (res: any) => {
+        this.restaurantsList = res.data;
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
+  };
+  ngOnInit(): void {
+    this.listRestaurants();
+  }
+
+  removeRestaurant(id: any){
+    this.restaurantsList = this.restaurantsList.filter(r => r._id !== id);
+  }
 }

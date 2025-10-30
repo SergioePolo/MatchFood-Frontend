@@ -1,1 +1,18 @@
-<p>restaurant-profile works!</p>
+<main *ngIf="restaurant">
+    <div class="card restaurant-card">
+        <img *ngIf="restaurant.logo" class="card-img-top" [src]="'http://localhost:3000' + restaurant.logo"
+            alt="Logo of {{ restaurant.name }}" />
+        <div class="card-body">
+            <h5 class="card-title">{{ restaurant.name }}</h5>
+            <p class="card-text">{{ restaurant.description }}</p>
+            <ul class="list-unstyled">
+                <li><strong>Email:</strong> {{ restaurant.email }}</li>
+                <li><strong>Phone:</strong> {{ restaurant.phone }}</li>
+                <li><strong>Ciudad:</strong> {{ restaurant.city }}</li>
+                <li><strong>Address:</strong> {{ restaurant.address }}</li>
+            </ul>
+            <button [routerLink]="['/reservar-mesa', restaurant._id]">Reserva tu experiencia</button>
+        </div>
+    </div>
+
+</main>

@@ -1,11 +1,96 @@
 .titulo-principal {
-    text-align: center;
-    margin-bottom: 10px; }
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    .carousel-caption h5 {
-        color: #F5F5DC;
-      }
-      
-      .carousel-caption p {
-        color: #F5F5DC;
-      }
+.carousel-slide-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+  z-index: 1;
+}
+
+.carousel-item {
+  position: relative;
+  min-height: 700px;
+}
+
+.custom-caption {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 60%, transparent 100%);
+  padding: 2rem 1.5rem;
+}
+
+.caption-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.caption-left {
+  text-align: left;
+  max-width: 400px;
+  color: var(--color-textos);
+}
+
+.restaurant-title {
+  color: var(--color-buttons2);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.restaurant-description {
+  color: var(--color-textos);
+  font-size: 1rem;
+  margin: 0.7rem 0 0;
+  word-break: break-word;
+}
+
+.centered-bottom {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 3;
+}
+
+.icon-btn.heart-btn {
+  background: rgba(255, 214, 0, 0.15);                 /* Lighter yellow using buttons2 */
+  border: none;
+  color: var(--color-buttons1);
+  font-size: 2.2rem;
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.3s;
+}
+
+.icon-btn.heart-btn.active {
+  color: var(--color-buttons2);                           /* Heart fill color */
+  background: rgba(244, 79, 90, 0.15);                    /* Heart fill background, lighter */
+}
+
+.caption-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.bookmark-btn,
+.chat-btn {
+  background: rgba(255,214,0,0.15);
+  border: 2px solid var(--color-buttons2);
+  color: var(--color-buttons2);
+  font-size: 1.7rem;
+  border-radius: 50%;
+  padding: 0.7rem;
+}
