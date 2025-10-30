@@ -27,27 +27,17 @@ export class UserAdmin implements OnInit {
   };
 
   categories = [
-    { name: 'Italiana', value: 45, color: 'color-1' },
-    { name: 'Comida rápida', value: 30, color: 'color-2' },
-    { name: 'Japonesa', value: 15, color: 'color-3' },
-    { name: 'Mexicana', value: 10, color: 'color-4' },
+    { name: 'Carne', value: 45, color: 'color-1' },
+    { name: 'Pollo', value: 30, color: 'color-2' },
+    { name: 'Pescado', value: 15, color: 'color-3' },
+    { name: 'Vegi', value: 10, color: 'color-4' },
   ];
 
-  ngOnInit(): void {
-    this.cargarEstadisticas();
-  }
+  ngOnInit(): void {}
 
-  cargarEstadisticas(): void {
-    console.log('Cargando estadísticas...');
-  }
+  
 
-  onPeriodChange(): void {
-    console.log('Periodo cambiado:', this.selectedPeriod);
-    this.cargarEstadisticas();
-  }
+ 
 
-  calcularCrecimiento(actual: number, anterior: number): number {
-    if (anterior === 0) return 0;
-    return Number((((actual - anterior) / anterior) * 100).toFixed(1));
-  }
+  
 }
