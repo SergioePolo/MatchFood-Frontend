@@ -110,17 +110,17 @@
 }
 
 .fondo-usuarios {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #eac766 0%, #837004 100%);
   color: white;
 }
 
 .fondo-restaurantes {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #c2980f 0%, #f5576c 100%);
   color: white;
 }
 
 .fondo-reservas {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(135deg, #43627e 0%, #00f2fe 100%);
   color: white;
 }
 
@@ -139,87 +139,6 @@
   color: #4A2C2A;
   opacity: 1;
   font-weight: 600;
-}
-
-
-.seccion-graficos {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 25px;
-  margin-bottom: 40px;
-}
-
-.grafico-principal {
-  background: #F5F5DC;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.grafico-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.grafico-header h3 {
-  font-size: 1.4rem;
-  color: #4A2C2A;
-  font-weight: 600;
-  margin: 0 0 5px 0;
-}
-
-.grafico-header p {
-  font-size: 0.9rem;
-  color: #4A2C2A;
-  opacity: 0.6;
-  margin: 0;
-}
-
-.selector-periodo {
-  padding: 10px 16px;
-  border: 2px solid rgba(74, 44, 42, 0.2);
-  border-radius: 8px;
-  background: white;
-  color: #4A2C2A;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.selector-periodo:hover {
-  border-color: #FFD700;
-}
-
-.selector-periodo:focus {
-  outline: none;
-  border-color: #FFD700;
-  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
-}
-
-.grafico-placeholder {
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(233, 116, 81, 0.1));
-  border-radius: 12px;
-  border: 2px dashed rgba(74, 44, 42, 0.2);
-}
-
-.grafico-placeholder p {
-  font-size: 1.2rem;
-  color: #4A2C2A;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.grafico-placeholder small {
-  color: #4A2C2A;
-  opacity: 0.6;
 }
 
 
@@ -282,25 +201,18 @@
 }
 
 .relleno.color-1 {
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #14ec00 0%, #ac2c2c8e 100%);
 }
 
 .relleno.color-2 {
-  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(90deg, #fffcff 0%, #b86886 100%);
 }
 
 .relleno.color-3 {
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ee0a0a 100%);
 }
 
 .relleno.color-4 {
-  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .seccion-graficos {
-    grid-template-columns: 1fr;
-  }
+  background: linear-gradient(90deg, #43e97b 0%, #ffffff 100%);
 }
 
