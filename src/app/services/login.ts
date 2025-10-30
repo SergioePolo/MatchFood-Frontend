@@ -4,6 +4,7 @@ import { Credentials } from '../interfaces/credentials';
 import { environment } from '../../environments/environment';
 import { jwtDecode } from 'jwt-decode'; 
 import { Router } from '@angular/router'; 
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -72,17 +73,28 @@ export class LoginService {
     }
   }
 
- 
-  logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('role');
-    alert('Cierre de sesión exitoso, ¡Vuelve pronto!');
-    this._router.navigate(['/']);
-  }
+ logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('userId');
+  localStorage.removeItem('role');
+
+  Swal.fire({
+    title: '¡Adiós!',
+    text: 'Cierre de sesión exitoso, ¡Vuelve pronto!',
+    icon: 'success',
+    showConfirmButton: false,
+    showCancelButton: false,
+    timer: 2000, 
+    timerProgressBar: true,
+   
+  }).then(() => {
+      this._router.navigate(['/']);
+  });
+}
 
  
   isLoggedIn() {
     return !!this.getToken();
   }
+
 }

@@ -38,10 +38,13 @@ export class LoginForm {
       next: (res: any) => {
         localStorage.setItem('token', res.token);
         Swal.fire({
-          title: 'Welcome',
+          title: 'Bienvenido',
           text: res.msg,
           icon: 'success',
-          confirmButtonText: 'Continuemos'
+          timer: 1500, 
+          timerProgressBar: true,
+          showConfirmButton: false,
+          showCancelButton: false,
         });
         this._serviceLogin.redirectTo();
       },

@@ -40,9 +40,6 @@
         <a routerLink="/perfil-de-usuario" class="profile-link">
           <img src="assets/perfil.jpg" alt="Perfil" class="rounded-circle profile-pic" width="40" height="40" />
         </a>
-        <a href="#" class="icon-link">
-          <i class="bi bi-bell bell-icon"></i>
-        </a>
         <button class="menu-btn btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
           <i class="bi bi-list menu-icon"></i>
         </button>
@@ -85,17 +82,21 @@
         </a>
       </li>
 
-      <li>
-        <a routerLink="/califica-tu-reserva" class="link" data-bs-dismiss="offcanvas">
-          <i class="bi bi-star me-2"></i>Calificar Reserva
-        </a>
-      </li>
-
-      <li>
-        <a routerLink="/inicio-de-sesion" class="link" data-bs-dismiss="offcanvas">
-          <i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión
-        </a>
-      </li>
+      @if (isLoggedIn) {
+        <li>
+          <a routerLink="/califica-tu-reserva" class="link" data-bs-dismiss="offcanvas">
+            <i class="bi bi-star me-2"></i>Calificar Reserva
+          </a>
+        </li>
+      
+        <li>
+          <a (click)="logout()" class="link" data-bs-dismiss="offcanvas">
+            <i class="bi bi-box-arrow-right me-2"></i>
+            Cerrar Sesión
+          </a>
+        </li>
+      }
     </ul>
   </div>
 </div>
+

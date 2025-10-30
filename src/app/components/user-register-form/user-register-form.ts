@@ -50,6 +50,10 @@ export class UserRegisterForm {
           title: 'Bienvenido',
           icon: 'success',
           text: res.mensaje,
+          timer: 1500, 
+          timerProgressBar: true,
+          showConfirmButton: false,
+          showCancelButton: false,
         }).then(()=>{
           this._router.navigate(['/inicio-de-sesion']);
         })
