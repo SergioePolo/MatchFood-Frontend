@@ -10,7 +10,17 @@ import { LoginService } from '../../services/login';
 })
 export class Header {
   private _LoginService = inject(LoginService);
+
   
   isLoggedIn : boolean = this._LoginService.isLoggedIn();
 
+  logout() {
+    this._LoginService.logout();
+    this.isLoggedIn = this._LoginService.isLoggedIn(); 
+  }
 }
+
+
+
+
+

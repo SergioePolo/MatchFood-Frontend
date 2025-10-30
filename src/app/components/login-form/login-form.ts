@@ -1,4 +1,3 @@
-
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Credentials } from '../../interfaces/credentials';
@@ -27,14 +26,13 @@ export class LoginForm {
   });
 
   handleSubmit() {
-
     if (this.loginForm.valid) {
+      this.isLoading.set(true);
+      this.errorMessage.set('');
+
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
       const role = this.loginForm.value.role;
-
-      this.isLoading.set(true);
-      this.errorMessage.set('');
 
       // Preparar credenciales para el backend
       const credentials: Credentials = {
@@ -44,19 +42,29 @@ export class LoginForm {
       };
 
       this._loginService.login(credentials).subscribe({
-        next: (response: any) => {          
+        next: (response: any) => {
           // Guardar token
           localStorage.setItem('token', response.token);
           Swal.fire({
-            title:'Bienvenido',
+            title: 'Bienvenido',
             text: response.mensaje,
-            icon:'success'
-          }).then(()=>{
+            icon: 'success',
+            timer: 1500,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            showCancelButton: false,
+          }).then(() => {
             this._loginService.redirectTo();
-          })
+          });
         },
         error: (error: any) => {
           console.error('Error en login:', error);
+          Swal.fire({
+            title: 'Error',
+            text: error.error?.mensaje || 'Error al iniciar sesión. Verifica tus credenciales.',
+            icon: 'error',
+            confirmButtonText: 'Intenta otra vez'
+          });
           this.errorMessage.set(
             error.error?.mensaje || 'Error al iniciar sesión. Verifica tus credenciales.'
           );
@@ -69,7 +77,12 @@ export class LoginForm {
     } else {
       // Validar que se haya seleccionado un rol
       if (!this.loginForm.value.role) {
-        alert('Por favor selecciona uno de los dos tipos de usuarios antes de enviar el formulario');
+        Swal.fire({
+          title: 'Campo requerido',
+          text: 'Por favor selecciona uno de los dos tipos de usuarios antes de enviar el formulario',
+          icon: 'warning',
+          confirmButtonText: 'Entendido'
+        });
       }
       this.markFormGroupTouched(this.loginForm);
     }
@@ -81,7 +94,7 @@ export class LoginForm {
       control?.markAsTouched();
     });
   }
-  // Getters para validación en template
+
   get email() {
     return this.loginForm.get('email');
   }

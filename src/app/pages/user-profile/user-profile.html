@@ -5,45 +5,51 @@
         <div class="col-md-5">
           <h2 class="titulo-perfil">Tú perfil</h2>
           
-          <div class="tarjeta-perfil" *ngIf="usuario">
-            <img [src]="usuario.profilePicture || 'assets/perfil.jpg'" 
-                 alt="foto" 
-                 class="foto-perfil"/>
-            
-            <h2 class="nombre-usuario">{{ usuario.firstName }} {{ usuario.lastName }}</h2>
-            <p class="text-muted">Se unió el {{ usuario.createdAt | date:'d \'de\' MMMM \'del\' yyyy':'es' }}</p>
-            
-            <div class="info-usuario">
+          @if (usuario) {
+            <div class="tarjeta-perfil">
+              <img [src]="usuario.profilePicture || 'assets/perfil.jpg'" 
+                   alt="foto" 
+                   class="foto-perfil"/>
+              
+              <h2 class="nombre-usuario">{{ usuario.firstName }} {{ usuario.lastName }}</h2>
+              <p class="text-muted">Se unió el {{ usuario.createdAt | date:'d \'de\' MMMM \'del\' yyyy':'es' }}</p>
+              
+              <div class="info-usuario">
                 <p><i class="fa-solid fa-city"></i> {{ usuario.city }}, Chapinero</p>
                 <p><i class="fa-solid fa-location-dot"></i> <strong>Ubicación:</strong> {{ usuario.address }}</p>
                 <p><i class="fa-solid fa-envelope"></i> {{ usuario.email }}</p>
                 <p><i class="fa-solid fa-phone"></i> {{ usuario.phone }}</p>
+              </div>
             </div>
-          </div>
+          }
   
           <h2 class="titulo-reservas">Tús reservas</h2>
   
           <div class="tarjeta-reservas">
-            <h3 class="titulo-seccion">Proximas reservas</h3>
+            <h3 class="titulo-seccion">Próximas reservas</h3>
             
-            <p *ngIf="reservasActivas.length === 0" class="sin-reservas">
-              No tienes reservas activas
-            </p>
-  
-            <div *ngFor="let reserva of reservasActivas" class="reserva">
-                <p class="nombre-restaurante">
-                  <i class="fa-solid fa-utensils"></i> Restaurante: {{ reserva.restaurantId?.name || 'No disponible' }}
-                </p>
-                <p class="detalle">
-                  <i class="fa-solid fa-calendar-days"></i> <strong>Fecha:</strong> {{ reserva.date | date:'d \'de\' MMMM, yyyy':'es' }}
-                </p>
-                <p class="detalle">
-                  <i class="fa-solid fa-clock"></i> <strong>Hora:</strong> {{ reserva.hour }}
-                </p>
-                <p class="detalle">
-                  <i class="fa-solid fa-user-group"></i> <strong>Personas:</strong> {{ reserva.people }}
-                </p>
-            </div>
+            @if (reservasActivas.length === 0) {
+              <p class="sin-reservas">
+                No tienes reservas activas
+              </p>
+            } @else {
+              @for (reserva of reservasActivas; track $index) {
+                <div class="reserva">
+                  <p class="nombre-restaurante">
+                    <i class="fa-solid fa-utensils"></i> Restaurante: {{ reserva.restaurantId?.name || 'No disponible' }}
+                  </p>
+                  <p class="detalle">
+                    <i class="fa-solid fa-calendar-days"></i> <strong>Fecha:</strong> {{ reserva.date | date:'d \'de\' MMMM, yyyy':'es' }}
+                  </p>
+                  <p class="detalle">
+                    <i class="fa-solid fa-clock"></i> <strong>Hora:</strong> {{ reserva.hour }}
+                  </p>
+                  <p class="detalle">
+                    <i class="fa-solid fa-user-group"></i> <strong>Personas:</strong> {{ reserva.people }}
+                  </p>
+                </div>
+              }
+            }
           </div>
         </div>
   
@@ -51,34 +57,38 @@
           <h2 class="titulo-valoraciones">Tús valoraciones recientes</h2>
   
           <div class="contenedor-valoraciones"> 
-              
-            <div *ngFor="let r of resenas" class="tarjeta-valoracion">
-              <div class="row">
-                <div class="col-md-5">
-                  <img [src]="r.img" alt="restaurante" class="foto-restaurante" />
-                </div>
-                
-                <div class="col-md-7">
-                  <h4 class="nombre-lugar">{{ r.lugar }}</h4>
-                  <p class="text-muted">{{ r.ciudad }}</p>
-                  <p class="comentario">{{ r.comentario }}</p>
-                  <div class="estrellas">
+            @for (r of resenas; track $index) {
+              <div class="tarjeta-valoracion">
+                <div class="row">
+                  <div class="col-md-5">
+                    <img [src]="r.img" alt="restaurante" class="foto-restaurante" />
+                  </div>
+                  
+                  <div class="col-md-7">
+                    <h4 class="nombre-lugar">{{ r.lugar }}</h4>
+                    <p class="text-muted">{{ r.ciudad }}</p>
+                    <p class="comentario">{{ r.comentario }}</p>
+                    
+                    <div class="estrellas">
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
                     </div>
-                  <p class="text-muted">{{ r.tiempo }}</p>
-                  
-                  <div class="botones-container">
-                    <button class="botones">Ver más</button>
-                    <button class="botones">Reservar</button>
+  
+                    <p class="text-muted">{{ r.tiempo }}</p>
+                    
+                    <div class="botones-container">
+                      <button class="botones">Ver más</button>
+                      <button class="botones">Reservar</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            }
           </div> 
         </div>
       </div>
     </div>
   </div>
+  
