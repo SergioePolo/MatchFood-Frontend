@@ -32,12 +32,11 @@ export class UserProfile implements OnInit {
 
   cargarPerfil(): void {
     const id = this.loginService.getUserId();
-
     if (id) {
       this.serviceUsers.getUserById(id).subscribe({
         next: (data: any) => {
-          this.usuario = data;
-          console.log('Perfil cargado:', this.usuario);
+          console.log(data)
+          this.usuario = data.data;
         },
         error: (err) => {
           console.error('Error al obtener el perfil:', err);
@@ -78,12 +77,11 @@ export class UserProfile implements OnInit {
   }
 
   cargarReservasActivas(): void {
-    this.reserveService.getReservesByUser().subscribe({
+    this.reserveService.getReservesByUser('2').subscribe({
       next: (response: any) => {
         this.reservasActivas = response.data || [];
-        console.log('Reservas activas:', this.reservasActivas);
       },
-      error: (err) => {
+      error: (err:any) => {
         console.error('Error al cargar reservas:', err);
         this.reservasActivas = [];
       }

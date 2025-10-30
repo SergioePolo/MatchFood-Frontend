@@ -2,22 +2,30 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { LoginService } from './login';
+import { Reserve } from '../interfaces/reserve';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReserveService {
 
-  private _http = inject(HttpClient);
-  private _loginService = inject(LoginService);
-  private apiUrl = environment.appURL;
+  private _httpClient = inject(HttpClient);
+  private apiURL = environment.appURL;
 
-  getReservesByUser() {
-    const token = this._loginService.getToken();
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-  
-    return this._http.get(`${this.apiUrl}/reserves/mis-reservas`, { headers });
+
+  createReserve(reserveToCreate: Reserve) {
+    return this._httpClient.post(`${this.apiURL}/reserves/crear`, reserveToCreate);
+  }
+
+  listReserves() {
+    return this._httpClient.get(`${this.apiURL}/reserves`);
+  }
+
+  getReservesByUser(id: string) {
+    return this._httpClient.get(`${this.apiURL}/reserves/mis-reservas/${id}`);
+  }
+
+  listReservesByRestaurant(id: string) {
+    return this._httpClient.get(`${this.apiURL}/reserves/restaurante/${id}`);
   }
 }

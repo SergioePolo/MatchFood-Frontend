@@ -12,26 +12,22 @@ export class ServiceUsers {
   private apiURL = environment.appURL;  
 
  createUser(userToCreate: User) {
-    return this._httpClient.post(`${this.apiURL}/user`, userToCreate);
+    return this._httpClient.post(`${this.apiURL}/users`, userToCreate);
 }
 
 searchUsers() {
-    return this._httpClient.get(`${this.apiURL}/user`);
+    return this._httpClient.get(`${this.apiURL}/users`);
 }
 
 updateUsers(userToUpdate: User, id: string) {
-    return this._httpClient.put(`${this.apiURL}/user/${id}`, userToUpdate);
+    return this._httpClient.put(`${this.apiURL}/uses/${id}`, userToUpdate);
 }
 
 deleteUser(id: string) {
-    return this._httpClient.delete(`${this.apiURL}/user/${id}`);
+    return this._httpClient.delete(`${this.apiURL}/users/${id}`);
 }
-  getUserById(id: string): Observable<User> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
 
-    return this._httpClient.get<User>(`${this.apiURL}/user/${id}`, { headers });
-  }
+getUserById(id: string){
+  return this._httpClient.get(`${this.apiURL}/users/${id}`);
+}
 }
