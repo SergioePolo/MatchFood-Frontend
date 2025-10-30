@@ -1,116 +1,203 @@
 <main>
-    <form class="formAcceso" [formGroup]="userRegisterForm" (ngSubmit)="handleSubmit()">
-      <div class="imagenDelForm">
-        <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
-      </div>
-  
-      <div class="form-title">
-        <h2>Regístrate</h2>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <p>Nombre *</p>
-          <input 
-            type="text" 
-            id="firstName"
-            placeholder="Juan"
-            formControlName="firstName"
-            autocomplete="firstName"
-            [class.is-invalid]="userRegisterForm.get('firstName')?.invalid"
-          >
-        </div>
+  <form class="formAcceso" [formGroup]="userRegisterForm" (ngSubmit)="handleSubmit()">
+    <div class="imagenDelForm">
+      <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
+    </div>
 
-        <div class="form-group">
-          <p>Apellido *</p>
-          <input 
-            type="text" 
-            id="lastName"
-            placeholder="Pérez"
-            formControlName="lastName"
-            autocomplete="lastName"
-            [class.is-invalid]="userRegisterForm.get('lastName')?.invalid"
-          >
-        </div>
-      </div>
+    <div class="form-title">
+      <h2>Regístrate en MatchFood</h2>
+    </div>
 
+    @if (errorMessage()) {
+      <div class="error-alert">
+        {{ errorMessage() }}
+      </div>
+    }
+
+    <div class="form-row">
       <div class="form-group">
-        <p>Email *</p>
-        <input 
-          type="email" 
-          id="email"
-          placeholder="tu@email.com"
-          formControlName="email"
-          autocomplete="email"
-            [class.is-invalid]="userRegisterForm.get('email')?.invalid"
-        >
-      </div>
-
-      <div class="form-group">
-        <p>Teléfono *</p>
-        <input 
-          type="tel" 
-          id="phone"
-          placeholder="3001234567"
-          formControlName="phone"
-          autocomplete="phone"
-          [class.is-invalid]="userRegisterForm.get('phone')?.invalid"
-        >
-      </div>
-
-      <div class="form-group">
-        <p>Contraseña *</p>
-        <input 
-          type="password" 
-          id="password"
-          placeholder="Tu contraseña"
-          formControlName="password"
-          autocomplete="new-password"
-            [class.is-invalid]="userRegisterForm.get('password')?.invalid"
-        >
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <p>Ciudad *</p>
-          <input 
-            type="text" 
-            id="city"
-            placeholder="Medellín"
-            formControlName="city"
-            autocomplete="city"
-            [class.is-invalid]="userRegisterForm.get('city')?.invalid"
-          >
-        </div>
-
-        <div class="form-group">
-          <p>Preferencias</p>
-          <select id="preferences" formControlName="preferences">
-            <option value="">Selecciona una opción</option>
-            <option value="carne">Carne</option>
-            <option value="pescado">Pescado</option>
-            <option value="pollo">Pollo</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <p>Dirección *</p>
+        <p>Nombre *</p>
         <input 
           type="text" 
-          id="address"
-          placeholder="Calle 123 #45-67"
-          formControlName="address"
-          autocomplete="address"
-          [class.is-invalid]="userRegisterForm.get('address')?.invalid"
+          id="firstName"
+          placeholder="Juan"
+          formControlName="firstName"
+          autocomplete="given-name"
+          [class.invalid]="firstName?.invalid && firstName?.touched"
         >
+        @if (firstName?.invalid && firstName?.touched) {
+          <span class="error-message">
+            @if (firstName?.errors?.['required']) {
+              El nombre es requerido
+            }
+            @if (firstName?.errors?.['minlength']) {
+              Mínimo 2 caracteres
+            }
+          </span>
+        }
       </div>
 
-      <button type="submit" class="login-button">
+      <div class="form-group">
+        <p>Apellido *</p>
+        <input 
+          type="text" 
+          id="lastName"
+          placeholder="Pérez"
+          formControlName="lastName"
+          autocomplete="family-name"
+          [class.invalid]="lastName?.invalid && lastName?.touched"
+        >
+        @if (lastName?.invalid && lastName?.touched) {
+          <span class="error-message">
+            @if (lastName?.errors?.['required']) {
+              El apellido es requerido
+            }
+            @if (lastName?.errors?.['minlength']) {
+              Mínimo 2 caracteres
+            }
+          </span>
+        }
+      </div>
+    </div>
+
+    <div class="form-group">
+      <p>Email *</p>
+      <input 
+        type="email" 
+        id="email"
+        placeholder="tu@email.com"
+        formControlName="email"
+        autocomplete="email"
+        [class.invalid]="email?.invalid && email?.touched"
+      >
+      @if (email?.invalid && email?.touched) {
+        <span class="error-message">
+          @if (email?.errors?.['required']) {
+            El email es requerido
+          }
+          @if (email?.errors?.['email']) {
+            Ingresa un email válido
+          }
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <p>Teléfono *</p>
+      <input 
+        type="tel" 
+        id="phone"
+        placeholder="3001234567"
+        formControlName="phone"
+        autocomplete="tel"
+        [class.invalid]="phone?.invalid && phone?.touched"
+      >
+      @if (phone?.invalid && phone?.touched) {
+        <span class="error-message">
+          @if (phone?.errors?.['required']) {
+            El teléfono es requerido
+          }
+          @if (phone?.errors?.['pattern']) {
+            Ingresa 10 dígitos sin espacios
+          }
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <p>Contraseña *</p>
+      <input 
+        type="password" 
+        id="password"
+        placeholder="Tu contraseña"
+        formControlName="password"
+        autocomplete="new-password"
+        [class.invalid]="password?.invalid && password?.touched"
+      >
+      @if (password?.invalid && password?.touched) {
+        <span class="error-message">
+          @if (password?.errors?.['required']) {
+            La contraseña es requerida
+          }
+          @if (password?.errors?.['minlength']) {
+            Mínimo 6 caracteres
+          }
+        </span>
+      }
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <p>Ciudad *</p>
+        <input 
+          type="text" 
+          id="city"
+          placeholder="Medellín"
+          formControlName="city"
+          autocomplete="address-level2"
+          [class.invalid]="city?.invalid && city?.touched"
+        >
+        @if (city?.invalid && city?.touched) {
+          <span class="error-message">
+            La ciudad es requerida
+          </span>
+        }
+      </div>
+
+      <div class="form-group">
+        <p>Preferencias *</p>
+        <select 
+          id="preferences" 
+          formControlName="preferences"
+          [class.invalid]="preferences?.invalid && preferences?.touched"
+        >
+          <option value="">Selecciona una opción</option>
+          <option value="carne">Carne</option>
+          <option value="pescado">Pescado</option>
+          <option value="pollo">Pollo</option>
+         
+          
+        </select>
+        @if (preferences?.invalid && preferences?.touched) {
+          <span class="error-message">
+            Selecciona una preferencia
+          </span>
+        }
+      </div>
+    </div>
+
+    <div class="form-group">
+      <p>Dirección *</p>
+      <input 
+        type="text" 
+        id="address"
+        placeholder="Calle 123 #45-67"
+        formControlName="address"
+        autocomplete="street-address"
+        [class.invalid]="address?.invalid && address?.touched"
+      >
+      @if (address?.invalid && address?.touched) {
+        <span class="error-message">
+          @if (address?.errors?.['required']) {
+            La dirección es requerida
+          }
+          @if (address?.errors?.['minlength']) {
+            Mínimo 8 caracteres
+          }
+        </span>
+      }
+    </div>
+
+    <button type="submit" class="login-button" [disabled]="isLoading()">
+      @if (isLoading()) {
+        Creando cuenta...
+      } @else {
         Crear cuenta en MatchFood
-      </button>
+      }
+    </button>
 
-      <div class="login-link">
-        <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
-      </div>
+    <div class="login-link">
+      <p>¿Ya tienes cuenta? <a routerLink="/inicio-de-sesion">Inicia sesión aquí</a></p>
+    </div>
   </form>
 </main>
