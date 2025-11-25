@@ -65,7 +65,7 @@ export class LoginService {
     const role = this.roleValidation();
 
     if (role === 'admin') {
-      this._router.navigate(['/dashboard']);
+      this._router.navigate(['/admin']);
     } else if (role === 'restaurant') {
       this._router.navigate(['/perfil-del-restaurante']);
     }

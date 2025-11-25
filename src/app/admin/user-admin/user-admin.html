@@ -9,25 +9,18 @@
    
     <section class="tarjetas-estadisticas">
       
+      <!-- Usuarios -->
       <article class="tarjeta">
         <div class="tarjeta-top">
           <div class="tarjeta-info">
             <h3>Usuarios</h3>
             <div class="tarjeta-valores">
-              <p class="valor">{{ stats.totalUsers }}</p>
-              <div [ngClass]="stats.usersGrowth >= 0 ? 'porcentaje positivo' : 'porcentaje negativo'">
-                <i [ngClass]="stats.usersGrowth >= 0 ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
-                <span>{{ stats.usersGrowth >= 0 ? '+' : '' }}{{ stats.usersGrowth }}%</span>
-              </div>
+              <p class="valor">{{ totalUsers }}</p>
             </div>
           </div>
           <div class="tarjeta-icono fondo-usuarios">
             <i class="bi bi-people"></i>
           </div>
-        </div>
-        <div class="tarjeta-footer">
-          <span>vs. mes anterior</span>
-          <strong>{{ stats.usersLastMonth }}</strong>
         </div>
       </article>
 
@@ -37,20 +30,12 @@
           <div class="tarjeta-info">
             <h3>Restaurantes</h3>
             <div class="tarjeta-valores">
-              <p class="valor">{{ stats.totalRestaurants }}</p>
-              <div [ngClass]="stats.restaurantsGrowth >= 0 ? 'porcentaje positivo' : 'porcentaje negativo'">
-                <i [ngClass]="stats.restaurantsGrowth >= 0 ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
-                <span>{{ stats.restaurantsGrowth >= 0 ? '+' : '' }}{{ stats.restaurantsGrowth }}%</span>
-              </div>
+              <p class="valor">{{ totalRestaurants }}</p>
             </div>
           </div>
           <div class="tarjeta-icono fondo-restaurantes">
             <i class="bi bi-shop"></i>
           </div>
-        </div>
-        <div class="tarjeta-footer">
-          <span>vs. mes anterior</span>
-          <strong>{{ stats.restaurantsLastMonth }}</strong>
         </div>
       </article>
 
@@ -60,41 +45,31 @@
           <div class="tarjeta-info">
             <h3>Reservas</h3>
             <div class="tarjeta-valores">
-              <p class="valor">{{ stats.totalBookings }}</p>
-              <div [ngClass]="stats.bookingsGrowth >= 0 ? 'porcentaje positivo' : 'porcentaje negativo'">
-                <i [ngClass]="stats.bookingsGrowth >= 0 ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
-                <span>{{ stats.bookingsGrowth >= 0 ? '+' : '' }}{{ stats.bookingsGrowth }}%</span>
-              </div>
+              <p class="valor">{{ totalBookings }}</p>
             </div>
           </div>
           <div class="tarjeta-icono fondo-reservas">
             <i class="bi bi-calendar-check"></i>
           </div>
         </div>
-        <div class="tarjeta-footer">
-          <span>vs. mes anterior</span>
-          <strong>{{ stats.bookingsLastMonth }}</strong>
-        </div>
       </article>
     </section>
 
-   
-        
-
       
-      <aside class="categorias-populares">
-        <h3>Categorías populares</h3>
-        <div class="lista-categorias">
-          <div *ngFor="let category of categories" class="categoria">
-            <div class="categoria-header">
-              <span>{{ category.name }}</span>
-              <strong>{{ category.value }}%</strong>
-            </div>
-            <div class="barra">
-              <div class="relleno" [ngClass]="category.color" [style.width.%]="category.value"></div>
-            </div>
+    <aside class="categorias-populares">
+      <h3>Categorías populares</h3>
+      <div class="lista-categorias">
+        <div *ngFor="let category of categories" class="categoria">
+          <div class="categoria-header">
+            <span>{{ category.name }}</span>
+            <strong>{{ category.value }}</strong>
+          </div>
+          <div class="barra">
+            <div class="relleno" [ngClass]="category.color" [style.width.%]="category.value"></div>
           </div>
         </div>
-      </aside>
+      </div>
+    </aside>
    
   </div>
+</main>
