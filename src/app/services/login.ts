@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { jwtDecode } from 'jwt-decode'; 
 import { Router } from '@angular/router'; 
 import Swal from 'sweetalert2';
+import { UserProfile } from '../pages/user-profile/user-profile';
 
 @Injectable({
   providedIn: 'root'
@@ -43,9 +44,8 @@ export class LoginService {
     const token = this.getToken();
     if (token) {
       const decoded: any = jwtDecode(token);
-      return decoded.role;
+      return decoded;
     } else {
-      console.log('No se encontró token');
       return false;
     }
   }
@@ -62,15 +62,18 @@ export class LoginService {
 
 
   redirectTo() {
-    const role = this.roleValidation();
+    const userToken = this.roleValidation();
 
-    if (role === 'admin') {
+    if(userToken.profileComplete === false){
+      this._router.navigate([`/completa-perfil/${userToken.id}`])
+    }
+    else if (userToken.role === 'admin') {
       this._router.navigate(['/admin']);
-    } else if (role === 'restaurant') {
+    }
+    else if (userToken.role === 'restaurant') {
       this._router.navigate(['/perfil-del-restaurante']);
     }
-
-    if(this.roleValidation() === "user"){
+    else if(userToken.role === "user"){
       this._router.navigate(['/inicio']);
     }
   }

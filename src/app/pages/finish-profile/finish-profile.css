@@ -1,0 +1,140 @@
+@import url('https://fonts.cdnfonts.com/css/quicksand');
+
+:root {
+    --primary_color: #4A2C2A;
+    --secondary_color: #8A8C66;
+    --accent_color_1: #E97451;
+    --accent_color_2: #FFD700;
+    --text_color: #F5F5DC;
+    --font_family: 'quicksand', sans-serif;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--secondary_color);
+    font-family: var(--font_family);
+    color: var(--text_color);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 18px;
+    color:#4A2C2A;
+}
+.formAcceso {
+    background-color: var(--text_color);
+    display: flex;
+    flex-direction: column;
+    width: min(550px, 90vw);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    gap: 25px;
+    background-color: #F5F5DC ;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group p,
+.form-group label {
+    color: #4A2C2A; 
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px; 
+    color: #6b6b6b;; 
+    
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent_color_1);
+}
+
+.form-group input.invalid,
+.form-group select.invalid {
+    border-color: #d32f2f;
+}
+
+.login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-buttons2);
+    color: #4A2C2A;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 30px;
+    text-align: center;
+   font-family: var(--font_family);
+    font-weight: bold;
+    transition: transform 0.4s ease;
+}
+
+.login-button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.login-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}.login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-buttons2);
+    color: #4A2C2A;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 30px;
+    text-align: center;
+   font-family: var(--font_family);
+    font-weight: bold;
+    transition: transform 0.4s ease;
+}
+
+.login-button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.login-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
