@@ -9,6 +9,7 @@ export interface User {
     preferences: string;
     address: string;
     profilePicture?: string;
+    userStatus?: boolean;
     role: string;
     createdAt?: string;  
 }
