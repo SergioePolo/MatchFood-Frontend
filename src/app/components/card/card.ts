@@ -17,10 +17,9 @@ export class Card implements OnInit{
     this._restaurantService.searchRestaurants().subscribe({
       next:(res:any)=>{
         this.restaurantsList = res.data;
-        console.log(this.restaurantsList);
       },
       error:(error:any)=>{
-        console.log(error);
+        this.restaurantsList = [];
       }
     });
   };

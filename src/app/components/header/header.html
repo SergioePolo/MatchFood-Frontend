@@ -31,21 +31,28 @@
 
       <div class="col"></div>
 
-      <div class="col-auto">
-        <div class="d-flex align-items-center gap-3">
-          <a href="#" class="icon-link">
-            <i class="bi bi-search search-icon"></i>
-          </a>
-          <!-- Solo muestra la foto de perfil si NO es restaurante -->
-          @if(!isRestaurant) {
-            <a routerLink="/perfil-de-usuario" class="profile-link">
-              <img src="assets/perfil.jpg" alt="Perfil" class="rounded-circle profile-pic" width="40" height="40" />
-            </a>
+    <div class="col-auto">
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="icon-link">
+          <i class="bi bi-search search-icon"></i>
+        </a>
+        <a routerLink="/perfil-de-usuario" class="profile-link">
+          <!-- Show image if profilePicture exists, otherwise show icon -->
+          @if(profilePicture) {
+            <img 
+              [src]="urlData + profilePicture" 
+              alt="Perfil" 
+              class="rounded-circle profile-pic" 
+              width="40" 
+              height="40" 
+            />
+          } @else {
+            <i class="bi bi-person-circle" style="font-size: 40px;"></i>
           }
-          <button class="menu-btn btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-            <i class="bi bi-list menu-icon"></i>
-          </button>
-        </div>
+        </a>
+        <button class="menu-btn btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+          <i class="bi bi-list menu-icon"></i>
+        </button>
       </div>
     }
   </div>
@@ -84,6 +91,17 @@
           </a>
         </li>
       }
+      <li>
+        <a routerLink="/perfil-de-usuario" class="link" data-bs-dismiss="offcanvas">
+          <i class="bi bi-person me-2"></i>Perfil de Usuario
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/crear-restaurante" class="link" data-bs-dismiss="offcanvas">
+          <i class="bi bi-shop me-2"></i>Crear Restaurante
+        </a>
+      </li>
 
       @if (isLoggedIn) {
         <li>

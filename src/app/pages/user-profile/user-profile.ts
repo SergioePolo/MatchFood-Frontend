@@ -35,7 +35,6 @@ export class UserProfile implements OnInit {
     if (id) {
       this.serviceUsers.getUserById(id).subscribe({
         next: (data: any) => {
-          console.log(data)
           this.usuario = data.data;
         },
         error: (err) => {

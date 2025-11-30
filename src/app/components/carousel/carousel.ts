@@ -20,7 +20,7 @@ export class Carousel implements OnInit{
         this.restaurantsList = res.data;
       },
       error: (error: any) => {
-        console.log(error);
+        this.restaurantsList = [];
       }
     });
   };

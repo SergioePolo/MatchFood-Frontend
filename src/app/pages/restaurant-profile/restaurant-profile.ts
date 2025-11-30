@@ -4,6 +4,7 @@ import { ServiceRestaurants } from '../../services/restaurants';
 import { Restaurant } from '../../interfaces/restaurant';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-restaurant-profile',
   imports: [CommonModule, RouterLink],
@@ -23,7 +24,11 @@ export class RestaurantProfile implements OnInit{
         this.restaurant = res.data;
       },
       error:(error:any)=>{
-        console.log(error)
+        Swal.fire({
+          icon:'error',
+          title:'Error',
+          text:error.error
+        })
       }
     })
   }
