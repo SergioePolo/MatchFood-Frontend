@@ -27,7 +27,8 @@ export class RestaurantRegisterForm {
     phone: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     city: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required])
+    address: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required])
   })
 
   handleSubmit() {
@@ -43,6 +44,7 @@ export class RestaurantRegisterForm {
         city: this.restaurantRegistrationForm.value.city || '',
         address: this.restaurantRegistrationForm.value.address || '',
         password: this.restaurantRegistrationForm.value.password || '',
+        description: this.restaurantRegistrationForm.value.description || '',
         role: 'restaurant'
       };
 

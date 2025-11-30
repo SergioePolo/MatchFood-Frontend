@@ -6,7 +6,8 @@ import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
