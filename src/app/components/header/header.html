@@ -1,7 +1,7 @@
-
-<!-- Franja amarilla -->
+<!-- Franja amarilla - Dinámica según el rol -->
 <div class="banner-amarillo w-100 text-center py-2">
-  <strong>Tu próxima mesa te espera</strong>
+  <strong *ngIf="isRestaurant">Tú próximo cliente te espera</strong>
+  <strong *ngIf="!isRestaurant">Tú próxima mesa te espera</strong>
 </div>
 
 <header class="header-bg py-3">
@@ -23,28 +23,30 @@
     }
     @if(isLoggedIn){
       <div class="col-auto">
-      <div class="d-flex align-items-center">
-        <i class="bi bi-geo-alt me-2 geo-icon"></i>
-        <span class="location-text">Bogotá, Chapinero</span>
-    
+        <div class="d-flex align-items-center">
+          <i class="bi bi-geo-alt me-2 geo-icon"></i>
+          <span class="location-text">Bogotá, Chapinero</span>
+        </div>
       </div>
-    </div>
 
-    <div class="col"></div>
+      <div class="col"></div>
 
-    <div class="col-auto">
-      <div class="d-flex align-items-center gap-3">
-        <a href="#" class="icon-link">
-          <i class="bi bi-search search-icon"></i>
-        </a>
-        <a routerLink="/perfil-de-usuario" class="profile-link">
-          <img src="assets/perfil.jpg" alt="Perfil" class="rounded-circle profile-pic" width="40" height="40" />
-        </a>
-        <button class="menu-btn btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-          <i class="bi bi-list menu-icon"></i>
-        </button>
+      <div class="col-auto">
+        <div class="d-flex align-items-center gap-3">
+          <a href="#" class="icon-link">
+            <i class="bi bi-search search-icon"></i>
+          </a>
+          <!-- Solo muestra la foto de perfil si NO es restaurante -->
+          @if(!isRestaurant) {
+            <a routerLink="/perfil-de-usuario" class="profile-link">
+              <img src="assets/perfil.jpg" alt="Perfil" class="rounded-circle profile-pic" width="40" height="40" />
+            </a>
+          }
+          <button class="menu-btn btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+            <i class="bi bi-list menu-icon"></i>
+          </button>
+        </div>
       </div>
-    </div>
     }
   </div>
 </header>
@@ -56,39 +58,34 @@
   </div>
   <div class="offcanvas-body">
     <ul class="menu-item">
+      <!-- Solo muestra "Perfil de Usuario" si no es restaurante -->
+      @if(isUser) {
+        <li>
+          <a routerLink="/perfil-de-usuario" class="link" data-bs-dismiss="offcanvas">
+            <i class="bi bi-person me-2"></i>Perfil de Usuario
+          </a>
+        </li>
+      }
 
+      <!-- Solo muestra "Perfil del Restaurante" si es restaurante -->
+      @if(isRestaurant) {
+        <li>
+          <a routerLink="/perfil-del-restaurante-privado" class="link" data-bs-dismiss="offcanvas">
+            <i class="bi bi-shop-window me-2"></i>Perfil del Restaurante
+          </a>
+        </li>
+      }
 
-<!--       <li>
-        <a routerLink="/crear-usuario" class="link" data-bs-dismiss="offcanvas">
-          <i class="bi bi-person-plus me-2"></i>Crear Usuario
-        </a>
-      </li> -->
-
-      <li>
-        <a routerLink="/perfil-de-usuario" class="link" data-bs-dismiss="offcanvas">
-          <i class="bi bi-person me-2"></i>Perfil de Usuario
-        </a>
-      </li>
-
-      <li>
-        <a routerLink="/crear-restaurante" class="link" data-bs-dismiss="offcanvas">
-          <i class="bi bi-shop me-2"></i>Crear Restaurante
-        </a>
-      </li>
-
-<!--       <li>
-        <a routerLink="/perfil-del-restaurante" class="link" data-bs-dismiss="offcanvas">
-          <i class="bi bi-shop-window me-2"></i>Perfil del Restaurante
-        </a>
-      </li> -->
+      <!-- Solo muestra crear restaurante para usuarios normales -->
+      @if(isUser) {
+        <li>
+          <a routerLink="/crear-restaurante" class="link" data-bs-dismiss="offcanvas">
+            <i class="bi bi-shop me-2"></i>Crear Restaurante
+          </a>
+        </li>
+      }
 
       @if (isLoggedIn) {
-<!--         <li>
-          <a routerLink="/califica-tu-reserva" class="link" data-bs-dismiss="offcanvas">
-            <i class="bi bi-star me-2"></i>Calificar Reserva
-          </a>
-        </li> -->
-      
         <li>
           <a (click)="logout()" class="link" data-bs-dismiss="offcanvas">
             <i class="bi bi-box-arrow-right me-2"></i>
@@ -99,4 +96,3 @@
     </ul>
   </div>
 </div>
-

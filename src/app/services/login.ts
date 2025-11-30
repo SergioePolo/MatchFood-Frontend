@@ -67,7 +67,7 @@ export class LoginService {
     if (role === 'admin') {
       this._router.navigate(['/admin']);
     } else if (role === 'restaurant') {
-      this._router.navigate(['/perfil-del-restaurante']);
+      this._router.navigate(['/perfil-del-restaurante-privado']);
     }
 
     if(this.roleValidation() === "user"){

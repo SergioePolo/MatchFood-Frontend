@@ -1,25 +1,89 @@
-<main>
-    <form>
-      <div class="formularioReserva">
-        <div class="imagenDelForm">
-          <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
-        </div>
-        <div class="form-title">
-          <h2>Califica tu experiencia</h2>
-        </div>
-        
-        <div class="form-field-textarea">
-          <textarea id="comentarios" rows="3" placeholder="¿Que te gusto más?"></textarea>
-        </div>
+<div class="contenedor-calificacion">
 
-        <div class="form-field-textarea">
-            <textarea id="comentarios" rows="3" placeholder="¿Que podria mejorar?"></textarea>
-          </div>
-
-        <button type="submit" class="login-button">
-          Enviar Calificación
-        </button>
-      
+  <div class="tarjeta-completa">
+  
+    <div class="encabezado-calificacion">
+      <div class="imagenDelForm">
+        <img src="assets/main_Resources/logo-matchfood.png" alt="Logo MatchFood">
       </div>
+      <h1>Califica tu experiencia</h1>
+      <p>¿Cómo estuvo tu visita? Tú opinión ayuda a otros usuarios y al restaurante a mejorar su servicio.</p>
+    </div>
+
+    <form (submit)="enviarFormulario($event)" class="formulario-calificacion">
+      
+ 
+      <div class="grupo-campo">
+        <label class="etiqueta">¿Qué te gustó más?</label>
+        <textarea 
+          class="area-texto" 
+          [(ngModel)]="comentarioPositivo"
+          name="comentarioPositivo"
+          rows="3"
+          placeholder="Escribe aquí lo que más disfrutaste..."
+        ></textarea>
+      </div>
+
+     
+      <div class="grupo-campo">
+        <label class="etiqueta">¿Qué podría mejorar?</label>
+        <textarea 
+          class="area-texto" 
+          [(ngModel)]="comentarioMejora"
+          name="comentarioMejora"
+          rows="3"
+          placeholder="Cuéntanos qué podemos hacer mejor..."
+        ></textarea>
+      </div>
+
+   
+      <div class="grupo-campo">
+        <label class="etiqueta">¿Qué calificación le das al restaurante?</label>
+        <div class="estrellas">
+          <i class="bi bi-star-fill estrella" 
+             [class.activa]="calificacion >= 1" 
+             (click)="seleccionarCalificacion(1)"></i>
+          <i class="bi bi-star-fill estrella" 
+             [class.activa]="calificacion >= 2" 
+             (click)="seleccionarCalificacion(2)"></i>
+          <i class="bi bi-star-fill estrella" 
+             [class.activa]="calificacion >= 3" 
+             (click)="seleccionarCalificacion(3)"></i>
+          <i class="bi bi-star-fill estrella" 
+             [class.activa]="calificacion >= 4" 
+             (click)="seleccionarCalificacion(4)"></i>
+          <i class="bi bi-star-fill estrella" 
+             [class.activa]="calificacion >= 5" 
+             (click)="seleccionarCalificacion(5)"></i>
+        </div>
+      </div>
+
+      
+      <div class="caja-subir-fotos" (click)="archivoInput.click()">
+        <i class="bi bi-folder-plus icono-carpeta"></i>
+        <p class="texto-fotos">¿Tomaste fotos? ¡Compártelas aquí!</p>
+        <input 
+          type="file" 
+          #archivoInput
+          multiple 
+          accept="image/*" 
+          style="display: none;"
+          (change)="seleccionarArchivos($event)"
+        >
+      </div>
+
+  
+      <div *ngIf="archivos.length > 0" class="lista-archivos">
+        <div *ngFor="let archivo of archivos; let i = index" class="item-archivo">
+          <i class="bi bi-image"></i>
+          <span>{{ archivo.name }}</span>
+          <button type="button" class="btn-eliminar-archivo" (click)="eliminarArchivo(i)">
+            <i class="bi bi-x-circle"></i>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="boton-enviar">Enviar calificación</button>
     </form>
-    </main>
+  </div>
+</div>

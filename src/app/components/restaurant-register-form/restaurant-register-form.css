@@ -85,7 +85,8 @@ main {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border: 2px solid #ddd;
@@ -98,14 +99,19 @@ main {
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
-    border-color: var(--accent_color_1);
+    border-color: #999;
 }
 
 .form-group input.invalid,
 .form-group select.invalid {
     border-color: #d32f2f;
+}
+
+.form-group textarea {
+    resize: none;
 }
 
 .form-row {

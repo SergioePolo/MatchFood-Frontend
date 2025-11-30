@@ -1,0 +1,243 @@
+.contenedor-calificacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.tarjeta-completa {
+    background-color: #F5F5DC;
+    width: min(800px, 95vw);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+}
+
+.encabezado-calificacion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.encabezado-calificacion h1 {
+    color: var(--color-menu);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.encabezado-calificacion p {
+    color: var(--color-menu);
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.formulario-calificacion {
+    max-width: 100%;
+}
+
+.imagenDelForm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    transition: transform 0.4s ease;
+}
+
+.imagenDelForm:hover {
+    transform: scale(1.05);
+}
+
+.imagenDelForm img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.grupo-campo {
+    margin-bottom: 15px;
+}
+
+.etiqueta {
+    display: block;
+    color: var(--color-menu);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.area-texto {
+    width: 100%;
+    padding: 5px 12px;
+    border: 2px solid #e0e0e0;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: var(--fuente-texto);
+    color: #666;
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+
+.area-texto::placeholder {
+    color: #999;
+}
+
+.area-texto:focus {
+    outline: none; 
+    border-color: #999;
+}
+
+.estrellas {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.estrella {
+    font-size: 55px;
+    color: #ddd;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.estrella.activa {
+    color: var(--color-buttons2);
+}
+
+.estrella:hover {
+    transform: scale(1.15);
+}
+
+.caja-subir-fotos {
+    background-color: white;
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.caja-subir-fotos:hover {
+    background-color: #fffef8;
+}
+
+.icono-carpeta {
+    font-size: 20px;
+    color: var(--color-menu);
+    margin-bottom: 15px;
+}
+
+.texto-fotos {
+    color: var(--color-menu);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.lista-archivos {
+    margin-top: 20px;
+}
+
+.item-archivo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.item-archivo:last-child {
+    margin-bottom: 0;
+}
+
+.item-archivo i.bi-image {
+    font-size: 24px;
+    color: var(--color-buttons2);
+}
+
+.item-archivo span {
+    flex: 1;
+    color: var(--color-menu);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-eliminar-archivo {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.btn-eliminar-archivo:hover {
+    transform: scale(1.2);
+}
+
+.boton-enviar {
+    width: 100%;
+    padding: 15px;
+    display: block;
+    margin: 40px auto 0;
+    background-color: var(--color-buttons2);
+    color: var(--color-menu);
+    border: none;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-enviar:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .contenedor-calificacion {
+        min-height: auto;
+        padding: 20px 10px;
+    }
+
+    .tarjeta-completa {
+        padding: 30px 20px;
+        width: 98vw;
+    }
+
+    .encabezado-calificacion h1 {
+        font-size: 36px;
+    }
+
+    .encabezado-calificacion p {
+        font-size: 16px;
+    }
+
+    .estrella {
+        font-size: 45px;
+    }
+
+    .estrellas {
+        gap: 10px;
+    }
+
+    .caja-subir-fotos {
+        padding: 30px 20px;
+    }
+
+    .icono-carpeta {
+        font-size: 50px;
+    }
+
+    .texto-fotos {
+        font-size: 16px;
+    }
+}

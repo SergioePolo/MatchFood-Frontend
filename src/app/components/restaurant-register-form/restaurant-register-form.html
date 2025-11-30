@@ -168,6 +168,30 @@
         </div>
       </div>
 
+      <!-- CAMPO NUEVO: DESCRIPCIÓN -->
+      <div class="form-group">
+        <p>Descripción del Restaurante *</p>
+        <textarea
+          id="description"
+          placeholder="Describe tu restaurante"
+          formControlName="description"
+          rows="3"
+          autocomplete="off"
+          [class.is-invalid]="restaurantRegistrationForm.get('description')?.touched"
+        ></textarea>
+
+        @if (
+          restaurantRegistrationForm.get('description')?.invalid &&
+          restaurantRegistrationForm.get('description')?.touched
+        ) {
+          <span class="error-message">
+            @if (restaurantRegistrationForm.get('description')?.errors?.['required']) {
+              La descripción es requerida
+            }
+          </span>
+        }
+      </div>
+
       <button type="submit" class="login-button" [disabled]="isLoading()">
         @if (isLoading()) {
           Creando cuenta...
