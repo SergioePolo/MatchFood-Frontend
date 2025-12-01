@@ -2,7 +2,7 @@ services:
   frontend:
     build: ./
     image: mi-frontend:latest
-    container_name: matchFood_frontend
+    container_name: angular_frontend
     ports:
       - "4200:80"
     restart: unless-stopped
