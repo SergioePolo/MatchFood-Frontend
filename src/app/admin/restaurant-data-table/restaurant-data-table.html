@@ -1,0 +1,68 @@
+<div class="restaurant-table-container">
+    <div class="table-header">
+        <h2>Gestión de Restaurantes</h2>
+        <p class="total-restaurants">Total: <strong>{{ restaurants.length }}</strong> restaurantes</p>
+    </div>
+
+    <div class="table-wrapper" *ngIf="!isLoading && restaurants.length > 0">
+        <table class="restaurants-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Fecha Creación</th>
+                    <th>Ver Detalles</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let restaurant of restaurants">
+                    <td class="restaurant-name">{{ restaurant.name }}</td>
+                    <td>{{ restaurant.city }}</td>
+                    <td>{{ restaurant.address }}</td>
+                    <td>{{ restaurant.phone }}</td>
+                    <td>{{ restaurant.email }}</td>
+                    <td>{{ formatDate(restaurant.createdAt) }}</td>
+                    <td>
+                        <button 
+                            class="btn-action btn-view" 
+                            (click)="viewRestaurantDetails(restaurant)"
+                            title="Ver detalles">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button 
+                            class="btn-action btn-edit" 
+                            (click)="editRestaurant(restaurant)"
+                            title="Editar">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button 
+                            class="btn-action btn-delete" 
+                            (click)="deleteRestaurant(restaurant)"
+                            title="Eliminar">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="no-results" *ngIf="!isLoading && restaurants.length === 0">
+        <i class="bi bi-shop"></i>
+        <p>No hay restaurantes registrados</p>
+    </div>
+
+    <div class="loading-spinner" *ngIf="isLoading">
+        <i class="bi bi-arrow-clockwise spin"></i>
+        <p>Cargando restaurantes...</p>
+    </div>
+</div>
