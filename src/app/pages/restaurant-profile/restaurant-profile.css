@@ -1,23 +1,278 @@
-.card.restaurant-card {
-    background-color: var(--color-textos);
-    max-width: 400px;
-    margin: 1rem auto;
+.seccion-principal {
+  margin: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 400px;
+}
+.imagen-rest {
+  object-fit: cover;
+  object-fit: contain;
+  height: 60vh;
+}
+
+  #carruselRestaurante .carousel-item img {
+    border-radius: 20px;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+.informacion-restaurante {
+  background-color: var(--color-titulos);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.informacion-restaurante:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+.informacion-restaurante h1 {
+  color: var(--color-menu);
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+.descripcion-principal {
+  font-size: 19px;
+  line-height: 3;
+  color: var(--color-menu);
+  margin-bottom: 20px;
+}
+.boton-reservar {
+  background-color: var(--color-buttons2);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 40px;
+  color: var(--color-menu);
+  margin-top: 15px;
+  font-weight: bold;
+}
+.boton-reservar:hover {
+  transform: scale(1.05);
+}
+.seccion-titulo-menu {
+  text-align: center;
+  margin: 40px 20px 20px;
+}
+.seccion-titulo-menu h2 {
+  color: var(--color-titulos);
+  font-size: 28px;
+  font-weight: bold;
+}
+.carrusel-menu {
+  background-color: var(--color-titulos);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.carrusel-menu:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+.item-menu {
+  text-align: center;
+  padding: 10px;
+}
+.item-menu img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px #ffd700;
+}
+.item-menu img:hover {
+  transform: scale(1.25);
+}
+.seccion-ubicacion {
+  border-radius: 15px;
+  padding: 15px;
+  margin: 20px;
+}
+.seccion-ubicacion h3 {
+  text-align: center;
+  color: var(--color-titulos);
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.tarjeta-ubicacion {
+    background: var(--color-titulos);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 40px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tarjeta-ubicacion:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+.info-ubicacion h5 {
+  color: var(--color-menu);
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.info-ubicacion p {
+  color: var(--color-menu);
+  font-size: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.mapa-ubicacion {
+  flex: 1.2;
+  max-width: 450px;
+  height: 220px;
+}
+.mapa-ubicacion iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.info-ubicacion {
+  font-size: 15px;
+  color: var(--color-menu);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  flex: 1;
+}
+
+
+.mapa-ubicacion {
+    flex: 1;
+    max-width: none;
+}
+.mapa-ubicacion iframe {
+    width: 100%;
+    height: 300px;
     border-radius: 12px;
 }
-
-.card-img-top {
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
+.info-ubicacion i {
+  margin-right: 10px;
+  min-width: 20px;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
-
-h5{
-    font-weight: bold;
+.seccion-reseñas {
+  margin: 20px 0;
+  padding: 0 20px;
 }
-
-button{
-    padding: 7px;
-    border-style: none;
-    background-color: var(--color-buttons2);
-    border-radius: 5px;
+.encabezado-reseñas {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.encabezado-reseñas h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: var(--color-titulos);
+  font-weight: bold;
+}
+.encabezado-reseñas p {
+  font-size: 18px;
+  color: var(--color-titulos);
+}
+.promedio-calificacion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-titulos);
+  padding: 12px 20px;
+  border-radius: 30px;
+  margin-top: 15px;
+  color: var(--color-menu);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.promedio-calificacion:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+.promedio-calificacion .numero {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--color-menu);
+}
+.promedio-calificacion .estrellas {
+  color: #ffd700;
+}
+.grid-reseñas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.tarjeta-reseña {
+  background-color: var(--color-titulos);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.tarjeta-reseña:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+.cabecera-reseña {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.foto-usuario {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.info-usuario h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: var(--color-menu);
+}
+.fecha-reseña {
+  font-size: 13px;
+  color: #888;
+}
+.estrellas-reseña {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+.comentario-reseña {
+  font-size: 18px;
+  color: var(--color-menu);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+@media (max-width: 768px) {
+  .info-ubicacion p {
+    font-size: 14px;
+  }
+  .info-ubicacion {
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .info-ubicacion p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .info-ubicacion {
+    padding: 10px;
+    gap: 10px;
+  }
 }

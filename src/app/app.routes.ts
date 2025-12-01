@@ -12,7 +12,6 @@ import { Welcome } from './pages/welcome/welcome';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { authGuard } from './guards/auth-guard';
 import { ReserveRestaurantForm } from './components/reserve-restaurant-form/reserve-restaurant-form';
-import { RestaurantProfilePrivate } from './pages/restaurant-profile-private/restaurant-profile-private';
 import { RateRestaurantForm } from './components/rate-restaurant-form/rate-restaurant-form';
 import { Admin } from './admin/admin';
 import { UserAdmin } from './admin/user-admin/user-admin';
@@ -29,7 +28,6 @@ export const routes: Routes = [
     {path: 'perfil-de-usuario', component: UserProfile, title: 'Perfil de usuario', canActivate: [authGuard]},
     {path: 'crear-usuario', component: UserRegister, title: 'Crea tu usuario'},
     { path: 'reservar-mesa/:id', component: ReserveRestaurantForm, title: 'Reserva una mesa',canActivate: [authGuard]},
-    { path: 'perfil-del-restaurante-privado', component: RestaurantProfilePrivate, title: 'Perfil privado del restaurante',canActivate: [authGuard]},
     /* {path: 'dashboard', component: Dashboard, canActivate: [authGuard]}, */
     {path: 'admin', 
         component: Admin,

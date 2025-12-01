@@ -69,8 +69,7 @@ export class LoginService {
     }
     else if (userToken.role === 'admin') {
       this._router.navigate(['/admin']);
-    } else if (role === 'restaurant') {
-      this._router.navigate(['/perfil-del-restaurante-privado']);
+
     }
     else if(userToken.role === "user"){
       this._router.navigate(['/inicio']);

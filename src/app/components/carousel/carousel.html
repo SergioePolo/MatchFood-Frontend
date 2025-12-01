@@ -1,6 +1,6 @@
 <main>
-    @if (restaurantsList.length === 0) {
-    <div class="carousel-container">
+    @if (restaurantsList.length > 0) {
+        <div class="carousel-container">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-inner">
                 <div *ngFor="let item of restaurantsList; index as i" class="carousel-item" [class.active]="i === 0">

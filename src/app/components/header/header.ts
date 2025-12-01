@@ -6,15 +6,14 @@ import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
 export class Header implements OnInit {
   private _LoginService = inject(LoginService);
   private _userService = inject(ServiceUsers);
-  
+
   profilePicture: string = '';
   urlData: string = environment.appURL; // Better to use environment variable
   isLoggedIn: boolean = this._LoginService.isLoggedIn();

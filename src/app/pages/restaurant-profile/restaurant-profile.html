@@ -1,18 +1,227 @@
-<main *ngIf="restaurant">
-    <div class="card restaurant-card">
-        <img *ngIf="restaurant.logo" class="card-img-top" [src]="'http://localhost:3000' + restaurant.logo"
-            alt="Logo of {{ restaurant.name }}" />
-        <div class="card-body">
-            <h5 class="card-title">{{ restaurant.name }}</h5>
-            <p class="card-text">{{ restaurant.description }}</p>
-            <ul class="list-unstyled">
-                <li><strong>Email:</strong> {{ restaurant.email }}</li>
-                <li><strong>Phone:</strong> {{ restaurant.phone }}</li>
-                <li><strong>Ciudad:</strong> {{ restaurant.city }}</li>
-                <li><strong>Address:</strong> {{ restaurant.address }}</li>
-            </ul>
-            <button [routerLink]="['/reservar-mesa', restaurant._id]">Reserva tu experiencia</button>
+
+    <div id="carruselRestaurante" class="carousel slide seccion-principal" data-bs-ride="carousel">
+        
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carruselRestaurante" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carruselRestaurante" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carruselRestaurante" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="assets/main_Resources/image2.png" 
+                     class="d-block w-100 imagen-rest" 
+                     alt="Restaurante">
+            </div>
+
+            <div class="carousel-item">
+                <img src="assets/main_Resources/image.png" 
+                     class="d-block w-100 imagen-rest" 
+                     alt="Ambiente del restaurante">
+            </div>
+
+   
+            <div class="carousel-item">
+                <img src="assets/main_Resources/image3.png" 
+                     class="d-block w-100 imagen-rest" 
+                     alt="Interior del restaurante">
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselRestaurante" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselRestaurante" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+
+    </div>
+
+    <!---Info-->
+    <div class="informacion-restaurante">
+        <h1>{{ restaurant.name }}</h1>
+
+        @if (restaurant.description) {
+            <p class="descripcion-principal">{{ restaurant.description }}</p>
+        } @else {
+            <p class="descripcion-principal"></p>
+        }
+
+        <button class="btn boton-reservar" 
+                [routerLink]="['/reservar-mesa', restaurant._id]">
+            Reservar tu experiencia
+        </button>
+    </div>
+
+    <!-- MENÚ -->
+    <div class="seccion-titulo-menu">
+        <h2>🍽️ Nuestro Menú</h2>
+    </div>
+
+    <!-- Platos del menú -->
+    @if (restaurant.menuImages && restaurant.menuImages.length > 0) {
+        <div class="carrusel-menu">
+            <div class="row justify-content-center">
+                @for (imagen of restaurant.menuImages; track imagen; let i = $index) {
+                    <div class="col-6 col-md-3 col-lg-2 item-menu"
+                         [ngClass]="{'d-none d-md-block': i >= 4, 'd-none d-lg-block': i >= 5}">
+                        <img [src]="'http://localhost:3000' + imagen" 
+                             [alt]="'Plato ' + (i + 1)">
+                    </div>
+                }
+            </div>
+        </div>
+    } @else {
+
+  
+        <div class="carrusel-menu">
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3 col-lg-2 item-menu">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200" alt="Plato 1">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 item-menu">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=200" alt="Plato 2">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 item-menu">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200" alt="Plato 3">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 item-menu">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200" alt="Plato 4">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 item-menu d-none d-md-block">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200" alt="Plato 5">
+                </div>
+                <div class="col-6 col-md-3 col-lg-2 item-menu d-none d-lg-block">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=200" alt="Plato 6">
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+<div class="seccion-ubicacion">
+    <h3><i class="fa-solid fa-location-dot"></i> Encuéntranos en</h3>
+
+    <div class="tarjeta-ubicacion">
+
+
+        <div class="info-ubicacion">
+            <p><i class="fa-solid fa-city"></i> {{ restaurant.city }}</p> 
+            <p>
+                <i class="fa-solid fa-location-dot"></i> 
+                <span>
+                    <strong>Dirección:</strong><br>
+                    {{ restaurant.address }}
+                </span>
+            </p>
+            <p><i class="fa-solid fa-phone"></i> {{ restaurant.phone }}</p> 
+            <p><i class="fa-solid fa-envelope"></i> {{ restaurant.email }}</p> 
+        </div>
+
+            <div class="mapa-ubicacion">
+                @if (mapUrl) {
+                    <iframe
+                        [src]="mapUrl"
+                        loading="lazy"
+                        allowfullscreen=""
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                }
+            </div>
+
         </div>
     </div>
 
-</main>
+    <div class="seccion-reseñas">
+    
+        <div class="encabezado-reseñas">
+            <h3><i class="fa-solid fa-star"></i> Reseñas y Calificaciones</h3>
+            <p>Lo que nuestros clientes dicen de nosotros</p>
+            
+            <div class="promedio-calificacion">
+                <span class="numero">4.8</span>
+                <span class="estrellas">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </span>
+                <span class="total">(25 reseñas)</span>
+            </div>
+        </div>
+    
+        <!-- RESEÑAS -->
+        <div class="grid-reseñas">
+         
+            <div class="tarjeta-reseña">
+                <div class="cabecera-reseña">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Usuario" class="foto-usuario">
+                    <div class="info-usuario">
+                        <h4>María González</h4>
+                        <p class="fecha-reseña">Hace 2 semanas</p>
+                    </div>
+                </div>
+                <div class="estrellas-reseña">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="comentario-reseña">
+                    "Excelente experiencia gastronómica. Los platos tienen una presentación impecable y el sabor es excepcional. El servicio es muy atento y profesional."
+                </p>
+        
+            </div>
+    
+   
+            <div class="tarjeta-reseña">
+                <div class="cabecera-reseña">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="Usuario" class="foto-usuario">
+                    <div class="info-usuario">
+                        <h4>Carlos Rodríguez</h4>
+                        <p class="fecha-reseña">Hace 1 mes</p>
+                    </div>
+                </div>
+                <div class="estrellas-reseña">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="comentario-reseña">
+                    "Ambiente acogedor y música agradable. Perfecto para una cena romántica. Los precios son justos para la calidad que ofrecen."
+                </p>
+            </div>
+    
+     
+            <div class="tarjeta-reseña">
+                <div class="cabecera-reseña">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Usuario" class="foto-usuario">
+                    <div class="info-usuario">
+                        <h4>Ana Martínez</h4>
+                        <p class="fecha-reseña">Hace 3 semanas</p>
+                    </div>
+                </div>
+                <div class="estrellas-reseña">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="comentario-reseña">
+                    "Muy buena experiencia en general. La comida deliciosa y fresca. El único detalle es que el tiempo de espera fue un poco largo."
+                </p>
+            </div>
+        </div>
+    </div>
+
+
