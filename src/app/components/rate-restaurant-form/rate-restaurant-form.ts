@@ -36,11 +36,6 @@ export class RateRestaurantForm {
       return;
     }
 
-    console.log('Comentario positivo:', this.comentarioPositivo);
-    console.log('Comentario mejora:', this.comentarioMejora);
-    console.log('Calificación:', this.calificacion);
-    console.log('Archivos:', this.archivos);
-
     alert(`¡Gracias por tu calificación de ${this.calificacion} estrellas!`);
   }
 }
