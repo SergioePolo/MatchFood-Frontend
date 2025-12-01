@@ -16,27 +16,32 @@ import { RateRestaurantForm } from './components/rate-restaurant-form/rate-resta
 import { Admin } from './admin/admin';
 import { UserAdmin } from './admin/user-admin/user-admin';
 import { FinishProfile } from './pages/finish-profile/finish-profile';
+import { UserDataTable } from './admin/user-data-table/user-data-table';
+import { RestaurantDataTable } from './admin/restaurant-data-table/restaurant-data-table';
+import { ReserveDataTable } from './admin/reserve-data-table/reserve-data-table';
 
 export const routes: Routes = [
-    {path: '' , component: Welcome, title:'Bienvenido a Match'},
-    {path: 'nosotros', component: AboutUs, title: 'Acerca de MatchFood'},
-    {path: 'inicio', component: Home, title: 'Encuentra tu restaurante', canActivate: [authGuard]},
-    {path: 'inicio-de-sesion', component: Login, title: 'Inicia sesión'},
-    {path: 'califica-tu-reserva', component: RateRestaurantForm, title: 'Califica tú reserva',canActivate: [authGuard]},
-    {path: 'perfil-del-restaurante/:id', component: RestaurantProfile, title: 'Perfil del restaurante'},
-    {path: 'crear-restaurante', component: RestaurantsRegister, title: 'Crear tu restaurante'},
-    {path: 'perfil-de-usuario', component: UserProfile, title: 'Perfil de usuario', canActivate: [authGuard]},
-    {path: 'crear-usuario', component: UserRegister, title: 'Crea tu usuario'},
-    { path: 'reservar-mesa/:id', component: ReserveRestaurantForm, title: 'Reserva una mesa',canActivate: [authGuard]},
+    { path: '', component: Welcome, title: 'Bienvenido a Match' },
+    { path: 'nosotros', component: AboutUs, title: 'Acerca de MatchFood' },
+    { path: 'inicio', component: Home, title: 'Encuentra tu restaurante', canActivate: [authGuard] },
+    { path: 'inicio-de-sesion', component: Login, title: 'Inicia sesión' },
+    { path: 'califica-tu-reserva', component: RateRestaurantForm, title: 'Califica tú reserva', canActivate: [authGuard] },
+    { path: 'perfil-del-restaurante/:id', component: RestaurantProfile, title: 'Perfil del restaurante' },
+    { path: 'crear-restaurante', component: RestaurantsRegister, title: 'Crear tu restaurante' },
+    { path: 'perfil-de-usuario', component: UserProfile, title: 'Perfil de usuario', canActivate: [authGuard] },
+    { path: 'crear-usuario', component: UserRegister, title: 'Crea tu usuario' },
+    { path: 'reservar-mesa/:id', component: ReserveRestaurantForm, title: 'Reserva una mesa', canActivate: [authGuard] },
     /* {path: 'dashboard', component: Dashboard, canActivate: [authGuard]}, */
-    {path: 'admin', 
+    {
+        path: 'admin',
         component: Admin,
         canActivate: [authGuard],
         children: [
-            { path: '', redirectTo: 'user-admin', pathMatch: 'full' },
-            { path: 'user-admin', component: UserAdmin, title: 'Administración de usuarios' }]
-        //colocar las rutas hijas aquí//
+            { path: 'user-admin', component: UserDataTable, title: 'Administración de usuarios' },
+            { path: 'restaurant-admin', component: RestaurantDataTable, title: 'Administración de restaurantes' },
+            { path: 'reserve-admin', component: ReserveDataTable, title: 'Administración de reservas' }
+        ]
     },
-    {path: 'completa-perfil/:id', component: FinishProfile},
-    {path:'**' , component: NotFound, title: '404 - No encontramos la página'},
+    { path: 'completa-perfil/:id', component: FinishProfile },
+    { path: '**', component: NotFound, title: '404 - No encontramos la página' },
 ];

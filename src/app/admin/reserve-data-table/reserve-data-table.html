@@ -1,0 +1,62 @@
+<div class="reserve-table-container">
+    <div class="table-header">
+        <h2>Consulta de Reservas</h2>
+        <p class="total-reserves">Total: <strong>{{ reserves.length }}</strong> reservas</p>
+    </div>
+
+    <div class="table-wrapper" *ngIf="!isLoading && reserves.length > 0">
+        <table class="reserves-table">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>Restaurante</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Personas</th>
+                    <th>Creada</th>
+                    <th>Ver Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reserve of reserves">
+                    <td class="user-name">
+                        {{ getUserName(reserve) }}
+                    </td>
+                    <td>{{ reserve.userId?.email || 'N/A' }}</td>
+                    <td class="restaurant-name">
+                        {{ getRestaurantName(reserve) }}
+                    </td>
+                    <td>{{ formatDate(reserve.date) }}</td>
+                    <td>
+                        <span class="badge badge-hour">{{ reserve.hour }}</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-people">
+                            <i class="bi bi-people-fill"></i> {{ reserve.people }}
+                        </span>
+                    </td>
+                    <td class="date-small">{{ formatDateTime(reserve.createdAt) }}</td>
+                    <td>
+                        <button 
+                            class="btn-action btn-view" 
+                            (click)="viewReserveDetails(reserve)"
+                            title="Ver detalles">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="no-results" *ngIf="!isLoading && reserves.length === 0">
+        <i class="bi bi-calendar-x"></i>
+        <p>No hay reservas registradas</p>
+    </div>
+
+    <div class="loading-spinner" *ngIf="isLoading">
+        <i class="bi bi-arrow-clockwise spin"></i>
+        <p>Cargando reservas...</p>
+    </div>
+</div>

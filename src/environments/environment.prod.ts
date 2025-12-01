@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    appURL: 'https://MatchFood.com'
+    appURL: 'https://matchfood.duckdns.org'
 }

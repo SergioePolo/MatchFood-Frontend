@@ -2,6 +2,7 @@
   <h1 class="titulo-admin">Panel de Administración MatchFood</h1>
   <p class="subtitulo-admin">Gestiona tu plataforma desde un solo lugar</p>
 
+  <!-- Navigation Cards -->
   <section class="acciones-admin">
     <article class="tarjeta-admin" (click)="abrirUsuarios()">
       <i class="bi bi-people-fill icono"></i>
@@ -17,19 +18,86 @@
       <button class="btn-ver">Ir a restaurantes</button>
     </article>
 
-    <article class="tarjeta-admin">
+    <article class="tarjeta-admin" (click)="abrirReservas()">
       <i class="bi bi-calendar-check icono"></i>
       <h2>Gestión de Reservas</h2>
       <p>Visualiza y administra todas las reservas de la plataforma.</p>
       <button class="btn-ver">Ir a reservas</button>
     </article>
+  </section>
 
-    
-  </section>!
-
-  
+  <!-- Router outlet for child data tables -->
   <div class="contenido-dinamico">
     <router-outlet></router-outlet>
   </div>
-</main>
 
+  <!-- Dashboard Statistics Section (always visible) -->
+  <section class="dashboard-section">
+    <header class="encabezado">
+      <h2>Dashboard de Estadísticas</h2>
+      <p>Bienvenido de vuelta</p>
+    </header>
+
+    <section class="tarjetas-estadisticas">
+      <!-- Usuarios -->
+      <article class="tarjeta-estadistica">
+        <div class="tarjeta-top">
+          <div class="tarjeta-info">
+            <h3>USUARIOS</h3>
+            <div class="tarjeta-valores">
+              <p class="valor">{{ totalUsers }}</p>
+            </div>
+          </div>
+          <div class="tarjeta-icono fondo-usuarios">
+            <i class="bi bi-people"></i>
+          </div>
+        </div>
+      </article>
+
+      <!-- Restaurantes -->
+      <article class="tarjeta-estadistica">
+        <div class="tarjeta-top">
+          <div class="tarjeta-info">
+            <h3>RESTAURANTES</h3>
+            <div class="tarjeta-valores">
+              <p class="valor">{{ totalRestaurants }}</p>
+            </div>
+          </div>
+          <div class="tarjeta-icono fondo-restaurantes">
+            <i class="bi bi-shop"></i>
+          </div>
+        </div>
+      </article>
+
+      <!-- Reservas -->
+      <article class="tarjeta-estadistica">
+        <div class="tarjeta-top">
+          <div class="tarjeta-info">
+            <h3>RESERVAS</h3>
+            <div class="tarjeta-valores">
+              <p class="valor">{{ totalBookings }}</p>
+            </div>
+          </div>
+          <div class="tarjeta-icono fondo-reservas">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <aside class="categorias-populares">
+      <h3>Categorías populares</h3>
+      <div class="lista-categorias">
+        <div *ngFor="let category of categories" class="categoria">
+          <div class="categoria-header">
+            <span>{{ category.name }}</span>
+            <strong>{{ category.value }}</strong>
+          </div>
+          <div class="barra">
+            <div class="relleno" [ngClass]="category.color" [style.width.%]="category.value"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>

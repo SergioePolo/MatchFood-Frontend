@@ -1,0 +1,65 @@
+<div class="user-table-container">
+    <div class="table-header">
+        <h2>Gestión de Usuarios</h2>
+        <p class="total-users">Total: <strong>{{ users.length }}</strong> usuarios</p>
+    </div>
+
+    <div class="table-wrapper" *ngIf="!isLoading && users.length > 0">
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Ciudad</th>
+                    <th>Preferencias</th>
+                    <th>Dirección</th>
+                    <th>Rol</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.city }}</td>
+                    <td>
+                        <span class="badge badge-{{ user.preferences }}">
+                            {{ user.preferences }}
+                        </span>
+                    </td>
+                    <td>{{ user.address }}</td>
+                    <td>
+                        <span class="badge" [ngClass]="user.role === 'admin' ? 'badge-admin' : 'badge-user'">
+                            {{ user.role }}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn-action btn-edit" (click)="editUser(user)" title="Editar">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn-action btn-delete" (click)="deleteUser(user)" title="Eliminar">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="no-results" *ngIf="!isLoading && users.length === 0">
+        <i class="bi bi-inbox"></i>
+        <p>No hay usuarios registrados</p>
+    </div>
+
+    <div class="loading-spinner" *ngIf="isLoading">
+        <i class="bi bi-arrow-clockwise spin"></i>
+        <p>Cargando usuarios...</p>
+    </div>
+</div>
